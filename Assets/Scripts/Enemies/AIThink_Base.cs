@@ -141,7 +141,7 @@ public class AIThink_Base : MonoBehaviour
         StopAllCoroutines();
         CancelInvoke();
 
-        MainManager.Pooling.PlaceParticle(enemyParticleType.die, transform.position);
+        MainManager.Pooling.PlaceParticle(particleType.enemyDie, transform.position, Vector3.one);
         MainManager.Pooling.ReturnEnemy(enemyType, transform);
     }
 }

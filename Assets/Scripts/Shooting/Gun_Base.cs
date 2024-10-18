@@ -135,7 +135,7 @@ public class Gun_Base : MonoBehaviour
 
     public virtual void UpdateAnimationReload()
     {
-        float newReloadSpeed = realReloadTime / (gun.reloadSpeed - 0.2f);
+        float newReloadSpeed = realReloadTime / gun.reloadSpeed;
         gunAnimator?.SetFloat("reloadSpeed", newReloadSpeed);
     }
 

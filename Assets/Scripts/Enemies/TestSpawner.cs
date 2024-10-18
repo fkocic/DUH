@@ -23,7 +23,7 @@ public class TestSpawner : MonoBehaviour
     private IEnumerator SpawnEnemy()
     {
         Vector3 pos = spawnPositions[Random.Range(0, spawnPositions.Length)].position;
-        MainManager.Pooling.PlaceParticle(enemyParticleType.spawn, pos);
+        MainManager.Pooling.PlaceParticle(particleType.enemySpawn, pos, Vector3.one);
 
         yield return new WaitForSeconds(spawnParticleDuration);
 

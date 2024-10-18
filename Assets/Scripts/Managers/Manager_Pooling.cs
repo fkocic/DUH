@@ -24,12 +24,6 @@ public class Manager_Pooling : MonoBehaviour
     [SerializeField] Transform impactParent;
     int impactPoolCounter;
 
-    [Header("Explosions")]
-    [SerializeField] List<Transform> explosionPool = new List<Transform>();
-    [SerializeField] GameObject explosionPrefab;
-    [SerializeField] int explosionPoolSize;
-    int explosionPoolCounter;
-
     [Header("Enemies")]
     [SerializeField] List<EnemyTemplate> allEnemies = new List<EnemyTemplate>();
     [SerializeField] List<GameObject> allEnemiesPrefabs = new List<GameObject>();
@@ -41,10 +35,11 @@ public class Manager_Pooling : MonoBehaviour
     [SerializeField] GameObject enemySpawnPrefab;
     [SerializeField] GameObject enemyDiePrefab;
     [SerializeField] GameObject enemyDropPrefab;
-    Dictionary<enemyParticleType, List<Transform>> enemyParticles = new Dictionary<enemyParticleType, List<Transform>>();
+    [SerializeField] GameObject explosionPrefab;
+    Dictionary<particleType, List<Transform>> enemyParticles = new Dictionary<particleType, List<Transform>>();
     [SerializeField] int particlePoolSize;
     [SerializeField] Transform particleParent;
-    int particleSpawnCounter, particleDieCounter, particleDropCounter;
+    int particleSpawnCounter, particleDieCounter, particleDropCounter, explosionCounter;
 
     public void SetupValues()
     {
@@ -80,12 +75,6 @@ public class Manager_Pooling : MonoBehaviour
             impactEffectPool.Add(Instantiate(impactPrefab, impactParent).transform);
             impactEffectPool[i].gameObject.SetActive(false);
         }
-
-        for (int i = 0; i < explosionPoolSize; i++)
-        {
-            explosionPool.Add(Instantiate(explosionPrefab, impactParent).transform);
-            //explosionPool[i].gameObject.SetActive(false);
-        }
     }
 
     private void SpawnEnemies()
@@ -105,22 +94,6 @@ public class Manager_Pooling : MonoBehaviour
                 enemObject.gameObject.SetActive(false);
             }
         }
-
-        //foreach (EnemyTemplate enem in allEnemies)
-        //{
-        //    List<Transform> tempList = new List<Transform>();
-        //    for (int i = 0; i < enemyPoolSize; i++)
-        //    {
-        //        tempList.Add(Instantiate(enem.enemyPrefab, enemyParent).transform);
-        //        tempList[i].GetComponent<AIThink_Base>().SetupValues();
-        //    }
-
-        //    enemies.Add(enem, tempList);
-        //    foreach (Transform enemObject in enemies[enem])
-        //    {
-        //        enemObject.gameObject.SetActive(false);
-        //    }
-        //}
     }
 
     private void SpawnEnemyParticles()
@@ -128,19 +101,20 @@ public class Manager_Pooling : MonoBehaviour
         List<Transform> tempListSpawn = new List<Transform>();
         List<Transform> tempListDie = new List<Transform>();
         List<Transform> tempListDrop = new List<Transform>();
+        List<Transform> tempListExplosion = new List<Transform>();
+
         for (int i = 0; i < particlePoolSize; i++)
         {
             tempListSpawn.Add(Instantiate(enemySpawnPrefab, particleParent).transform);
             tempListDie.Add(Instantiate(enemyDiePrefab, particleParent).transform);
             tempListDrop.Add(Instantiate(enemyDropPrefab, particleParent).transform);
-            //tempListSpawn[i].gameObject.SetActive(false);
-            //tempListDie[i].gameObject.SetActive(false);
-            //tempListDrop[i].gameObject.SetActive(false);
+            tempListExplosion.Add(Instantiate(explosionPrefab, particleParent).transform);
         }
 
-        enemyParticles.Add(enemyParticleType.spawn, tempListSpawn);
-        enemyParticles.Add(enemyParticleType.die, tempListDie);
-        enemyParticles.Add(enemyParticleType.drop, tempListDrop);
+        enemyParticles.Add(particleType.enemySpawn, tempListSpawn);
+        enemyParticles.Add(particleType.enemyDie, tempListDie);
+        enemyParticles.Add(particleType.enemyDrop, tempListDrop);
+        enemyParticles.Add(particleType.explosion, tempListExplosion);
     }
 
     #endregion
@@ -231,18 +205,6 @@ public class Manager_Pooling : MonoBehaviour
             dec.gameObject.SetActive(false);
     }
 
-    public void PlaceExplosion(Vector3 pos, Vector3 scale)
-    {
-        //explosionPool[explosionPoolCounter].gameObject.SetActive(true);
-        explosionPool[explosionPoolCounter].position = pos;
-        explosionPool[explosionPoolCounter].localScale = scale/2;
-        explosionPool[explosionPoolCounter].GetComponent<Impact>().PlayImpact();
-
-        explosionPoolCounter++;
-        if(explosionPoolCounter >= explosionPoolSize)
-            explosionPoolCounter = 0;
-    }
-
     #endregion
 
     #region Enemies
@@ -271,20 +233,25 @@ public class Manager_Pooling : MonoBehaviour
 
     #region Enemy Particles
 
-    public void PlaceParticle(enemyParticleType type, Vector3 pos)
+    public void PlaceParticle(particleType type, Vector3 pos, Vector3 scale)
     {
-        if (type == enemyParticleType.spawn && enemyParticles.ContainsKey(enemyParticleType.spawn))
+        if (!enemyParticles.ContainsKey(type))
+            return;
+
+        if (type == particleType.enemySpawn)
             PlaceSpawn(pos);
-        else if(type == enemyParticleType.die && enemyParticles.ContainsKey(enemyParticleType.die))
+        else if(type == particleType.enemyDie)
             PlaceDie(pos);
-        else if (type == enemyParticleType.drop && enemyParticles.ContainsKey(enemyParticleType.drop))
+        else if (type == particleType.enemyDrop)
             PlaceDrop(pos);
+        else if (type == particleType.explosion)
+            PlaceExplosion(pos, scale);
     }
 
     private void PlaceSpawn(Vector3 pos)
     {
-        enemyParticles[enemyParticleType.spawn][particleSpawnCounter].position = pos;
-        enemyParticles[enemyParticleType.spawn][particleSpawnCounter].GetComponent<ParticleSystem>().Play();
+        enemyParticles[particleType.enemySpawn][particleSpawnCounter].position = pos;
+        enemyParticles[particleType.enemySpawn][particleSpawnCounter].GetComponent<Impact>().PlayImpact();
 
         particleSpawnCounter++;
         if (particleSpawnCounter >= particlePoolSize)
@@ -293,8 +260,8 @@ public class Manager_Pooling : MonoBehaviour
 
     private void PlaceDie(Vector3 pos)
     {
-        enemyParticles[enemyParticleType.die][particleDieCounter].position = pos;
-        enemyParticles[enemyParticleType.die][particleDieCounter].GetComponent<ParticleSystem>().Play();
+        enemyParticles[particleType.enemyDie][particleDieCounter].position = pos;
+        enemyParticles[particleType.enemyDie][particleDieCounter].GetComponent<Impact>().PlayImpact();
 
         particleDieCounter++;
         if (particleDieCounter >= particlePoolSize)
@@ -303,20 +270,32 @@ public class Manager_Pooling : MonoBehaviour
 
     private void PlaceDrop(Vector3 pos)
     {
-        enemyParticles[enemyParticleType.drop][particleDropCounter].position = pos;
-        enemyParticles[enemyParticleType.drop][particleDropCounter].GetComponent<ParticleSystem>().Play();
+        enemyParticles[particleType.enemyDrop][particleDropCounter].position = pos;
+        enemyParticles[particleType.enemyDrop][particleDropCounter].GetComponent<Impact>().PlayImpact();
 
         particleDropCounter++;
         if (particleDropCounter >= particlePoolSize)
             particleDropCounter = 0;
     }
 
+    private void PlaceExplosion(Vector3 pos, Vector3 scale)
+    {
+        enemyParticles[particleType.explosion][explosionCounter].position = pos;
+        enemyParticles[particleType.explosion][explosionCounter].localScale = scale / 2;
+        enemyParticles[particleType.explosion][explosionCounter].GetComponent<Impact>().PlayImpact();
+
+        explosionCounter++;
+        if (explosionCounter >= particlePoolSize)
+            explosionCounter = 0;
+    }
+
     #endregion
 }
 
-public enum enemyParticleType
+public enum particleType
 {
-    spawn,
-    die,
-    drop
+    enemySpawn,
+    enemyDie,
+    enemyDrop,
+    explosion
 }

@@ -13,7 +13,7 @@ public class AIAttack_Kamikaze : AIAttack_Base
         foreach (Collider hit in colliders)
         {
             hit.GetComponent<Object_Base>()?.Damage(explosiveDamage, transform.position, Vector3.zero, 0.1f, false);
-            MainManager.Pooling.PlaceExplosion(transform.position, new Vector3(explosiveRadius, explosiveRadius, explosiveRadius));
+            MainManager.Pooling.PlaceParticle(particleType.explosion, transform.position, new Vector3(explosiveRadius, explosiveRadius, explosiveRadius));
         }
 
         gameObject.SetActive(false);
