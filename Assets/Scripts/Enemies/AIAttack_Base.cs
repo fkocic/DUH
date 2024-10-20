@@ -39,7 +39,9 @@ public class AIAttack_Base : MonoBehaviour
         PlayEffects();
 
         CheckProximity(gunMuzzle.position, gunMuzzle);
-        StartCoroutine(FireRate());
+
+        if(gameObject.activeInHierarchy)
+            StartCoroutine(FireRate());
     }
 
     public virtual void PlayEffects()
@@ -90,10 +92,5 @@ public class AIAttack_Base : MonoBehaviour
     private void OnEnable()
     {
         bulletInChamber = true;
-    }
-
-    private void OnDisable()
-    {
-        StopAllCoroutines();
     }
 }

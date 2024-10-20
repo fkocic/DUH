@@ -39,23 +39,24 @@ public class Manager_Effects : MonoBehaviour
         scriptCamera.AddRecoil(intensity, duration);
     }
 
-    public void PlayerDamageIndicator(Vector3 playerPos, Vector3 bulletPos, Vector3 playerForward)
+    public void PlayerDamageIndicator(Transform player, Vector3 bulletPos)
     {
         Vector3 dmgDir;
         Vector3 leftRight = bulletPos;
-        leftRight.y = playerPos.y;
+        leftRight.y = player.position.y;
 
-        dmgDir = leftRight - playerPos;
-        float angleLeftRight = Vector3.Angle(dmgDir, playerForward);
+        dmgDir = leftRight - player.position;
+        float angleLeftRight = Vector3.Angle(dmgDir, player.forward);
 
         Vector3 upDown = bulletPos;
-        upDown.x = playerPos.x;
-        dmgDir = upDown - playerPos;
-        float angleUpDown = Vector3.Angle(dmgDir, playerForward);
+        upDown.x = player.position.x;
+        dmgDir = upDown - player.position;
+        float angleUpDown = Vector3.Angle(dmgDir, player.forward);
 
         if(angleLeftRight > angleUpDown)
         {
-            if(leftRight.x < playerPos.x)
+            Vector3 localLeftRight = player.InverseTransformDirection(leftRight);
+            if (localLeftRight.x < 0)
                 scriptIndicator.ShowIndicator(0);
             else
                 scriptIndicator.ShowIndicator(1);

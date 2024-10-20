@@ -2,34 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using Unity.VisualScripting;
 
 public class Controller_DamageIndicator : MonoBehaviour
 {
     [SerializeField] CanvasGroup groupDamageEffect;
     [SerializeField] CanvasGroup[] groupDamageDirection;
+    Quaternion[] startRots = new Quaternion[3];
 
     [SerializeField] float damageEffectDuration, damageEffectFadeSpeed, damageEffectAlpha;
-    [SerializeField] float directionEffectDuration, directionEffectFadeSpeed, directionEffectAlpha;
+    [SerializeField] float directionEffectDuration, directionEffectFadeSpeed, directionEffectAlpha, directionShakeStrength;
 
-    //public void ShowIndicatorMesh(Quaternion rot)
-    //{
-    //    ToggleGroup();
-    //    indicatorArrow.rotation = rot;
-    //    indicatorArrow.GetComponentInChildren<MeshRenderer>().enabled = true;
-    //    float timeElapsed = 0;
-
-    //    StartCoroutine(checkDuration());
-    //    IEnumerator checkDuration()
-    //    {
-    //        while (timeElapsed < indicatorDuration)
-    //        {
-    //            timeElapsed += Time.deltaTime;
-    //            yield return null;
-    //        }
-
-    //        indicatorArrow.GetComponentInChildren<MeshRenderer>().enabled = false;
-    //    }
-    //}
+    private void Start()
+    {
+        for(int i = 0; i < startRots.Length; i++) 
+        {
+            startRots[i] = groupDamageDirection[i].GetComponent<RectTransform>().rotation;
+        }
+    }
 
     public void ShowIndicator(int dir)
     {
@@ -52,14 +42,18 @@ public class Controller_DamageIndicator : MonoBehaviour
 
     private void ShowGroupDirection(int pos)
     {
-        DOTween.Kill("Dir");
-        groupDamageDirection[pos].DOFade(directionEffectAlpha, directionEffectFadeSpeed).SetId("Dir");
+        DOTween.Kill("Dir" + pos.ToString());
+        groupDamageDirection[pos].alpha = 0;
+        groupDamageDirection[pos].GetComponent<RectTransform>().rotation = startRots[pos];
+
+        groupDamageDirection[pos].DOFade(directionEffectAlpha, directionEffectFadeSpeed).SetId("Dir" + pos.ToString());
+        groupDamageDirection[pos].GetComponent<RectTransform>().DOShakeRotation(0.3f, directionShakeStrength).SetId("Dir" + pos.ToString());
 
         StartCoroutine(waitFade());
         IEnumerator waitFade()
         {
             yield return new WaitForSeconds(directionEffectDuration);
-            groupDamageDirection[pos].DOFade(0, directionEffectFadeSpeed).SetId("Dir");
+            groupDamageDirection[pos].DOFade(0, directionEffectFadeSpeed).SetId("Dir" + pos.ToString());
         }
     }
 }

@@ -39,42 +39,6 @@ public class AIThink_Base : MonoBehaviour
         InvokeRepeating(nameof(Think), enemyType.thinkFrequency, enemyType.thinkFrequency);
     }
 
-    //private IEnumerator Think()
-    //{
-    //    yield return new WaitForSeconds(enemyType.thinkFrequency);
-
-    //    float dist = Vector3.Distance(transform.position, MainManager.Player.player.position);
-    //    if (dist > enemyType.preferredDistanceToPlayer)
-    //    {
-    //        //Vector3 direction = MainManager.Player.player.position - transform.position;
-    //        //aiMove.MoveTo(transform.position + direction.normalized * 5, 0);
-    //        aiMove.MoveTo(MainManager.Player.player.position, 0);
-    //    }
-    //    else
-    //    {
-    //        if (Physics.Raycast(transform.position, MainManager.Player.player.position - transform.position, out hit, enemyType.preferredDistanceToPlayer, colideLayer, QueryTriggerInteraction.Ignore))
-    //        {
-    //            if(hit.collider.gameObject.CompareTag("Player"))
-    //            {
-    //                aiMove.Stop();
-    //                aiMove.LookAt(MainManager.Player.player.position, enemyType.aimSpeed);
-    //                aiAttack.AimAt(MainManager.Player.player);
-    //            }
-    //            else
-    //            {
-    //                aiMove.MoveTo(transform.position + Random.insideUnitSphere * 5f, 0);
-    //            }
-    //        }
-    //        else
-    //        {
-    //            aiMove.MoveTo(transform.position + Random.insideUnitSphere * 5f, 0);
-    //        }
-    //    }
-
-    //    if(gameObject.activeInHierarchy)
-    //        StartCoroutine(Think());
-    //}
-
     public virtual void Think()
     {
         float dist = Vector3.Distance(transform.position, MainManager.Player.player.position);
@@ -138,7 +102,6 @@ public class AIThink_Base : MonoBehaviour
 
     private void OnDisable()
     {
-        StopAllCoroutines();
         CancelInvoke();
 
         MainManager.Pooling.PlaceParticle(particleType.enemyDie, transform.position, Vector3.one);

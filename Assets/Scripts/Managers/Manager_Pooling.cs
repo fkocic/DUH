@@ -231,7 +231,7 @@ public class Manager_Pooling : MonoBehaviour
 
     #endregion
 
-    #region Enemy Particles
+    #region Particles
 
     public void PlaceParticle(particleType type, Vector3 pos, Vector3 scale)
     {
