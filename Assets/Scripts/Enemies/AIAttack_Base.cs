@@ -8,12 +8,14 @@ public class AIAttack_Base : MonoBehaviour
     public Transform gunMuzzle;
     public ParticleSystem particleMuzzle;
 
-    [HideInInspector] public bool bulletInChamber;
-    [HideInInspector] public AIThink_Base scriptMain;
+    [HideInInspector]public bool bulletInChamber;
+    [HideInInspector]public AIThink_Base scriptMain;
+    [HideInInspector] public Animator anim;
 
-    public virtual void SetupValues(AIThink_Base scr)
+    public virtual void SetupValues(AIThink_Base scr, Animator baseAnimator)
     {
         scriptMain = scr;
+        anim = baseAnimator;
     }
 
     public virtual void AimAt(Transform target)
@@ -48,6 +50,7 @@ public class AIAttack_Base : MonoBehaviour
     {
         scriptMain.PlaySound(gun.soundShooting[Random.Range(0, gun.soundShooting.Length)]);
         particleMuzzle.Play();
+        anim?.SetTrigger("Shoot");
     }
 
     public virtual void CheckProximity(Vector3 spawnPos, Transform spawnSource)

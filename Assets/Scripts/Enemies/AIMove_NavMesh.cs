@@ -14,18 +14,14 @@ public class AIMove_NavMesh : AIMove_Base
     Quaternion finalRotation;
     NavMeshPath newPath;
 
-    public override void SetupValues(float moveSpeed, float turnSpeed)
+    public override void SetupValues(float moveSpeed, float turnSpeed, Animator baseAnimator)
     {
         newPath = new NavMeshPath();
-        this.moveSpeed = moveSpeed;
-        this.turnSpeed = turnSpeed;
         agent = GetComponent<NavMeshAgent>();
         agent.speed = moveSpeed;
         agent.angularSpeed = 0;
-        defaultTurnSpeed = turnSpeed;
-        defaultMoveSpeed = moveSpeed;
-
         finalRotation = Quaternion.identity;
+        base.SetupValues(moveSpeed, turnSpeed, baseAnimator);
     }
 
     public override void SetPosition(Vector3 position)
@@ -99,10 +95,13 @@ public class AIMove_NavMesh : AIMove_Base
         }
 
         transform.rotation = Quaternion.Lerp(transform.rotation, finalRotation, turnSpeed * Time.deltaTime);
+        anim?.SetFloat("moveSpeed", agent.velocity.magnitude);
     }
 
     private IEnumerator jumpWait(float duration)
     {
+        anim?.SetTrigger("Jump");
+
         Vector3 startPos = transform.position;
         Vector3 endPos = agent.currentOffMeshLinkData.endPos + Vector3.up * agent.baseOffset;
         float timer = 0f;

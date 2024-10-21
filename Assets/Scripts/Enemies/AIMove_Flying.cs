@@ -15,15 +15,11 @@ public class AIMove_Flying : AIMove_Base
     Vector3 addedRandomness, correctedDestination;
     Quaternion finalRotation;
 
-    public override void SetupValues(float moveSpeed, float turnSpeed)
+    public override void SetupValues(float moveSpeed, float turnSpeed, Animator baseAnimator)
     {
         rb = GetComponent<Rigidbody>();
-        this.moveSpeed = moveSpeed;
-        this.turnSpeed = turnSpeed;
-        defaultTurnSpeed = turnSpeed;
-        defaultMoveSpeed = moveSpeed;
-
         finalRotation = Quaternion.identity;
+        base.SetupValues(moveSpeed, turnSpeed, baseAnimator);
     }
 
     public override void SetPosition(Vector3 position)
@@ -67,6 +63,7 @@ public class AIMove_Flying : AIMove_Base
     private void FixedUpdate()
     {
         transform.rotation = Quaternion.Lerp(transform.rotation, finalRotation, turnSpeed * Time.deltaTime);
+        anim?.SetFloat("moveSpeed", rb.velocity.magnitude);
 
         LimitVelocity();
     }

@@ -8,7 +8,7 @@ public class AIThink_Base : MonoBehaviour
     public EnemyTemplate enemyType;
     [HideInInspector]public float health;
     public ParticleSystem bloodParticles;
-    Material mat;
+    public SkinnedMeshRenderer[] renderers;
 
     public LayerMask colideLayer;
     RaycastHit hit;
@@ -17,17 +17,18 @@ public class AIThink_Base : MonoBehaviour
     AIAttack_Base aiAttack;
 
     AudioSource aud;
+    Animator anim;
 
     public void SetupValues()
     {
-        mat = GetComponent<MeshRenderer>().material;
         aiMove = GetComponent<AIMove_Base>();
         aiAttack = GetComponent<AIAttack_Base>();
 
-        aiMove.SetupValues(enemyType.moveSpeed, enemyType.turnSpeed);
-        aiAttack.SetupValues(this);
-
         aud = GetComponent<AudioSource>();
+        anim = GetComponent<Animator>();
+
+        aiMove.SetupValues(enemyType.moveSpeed, enemyType.turnSpeed, anim);
+        aiAttack.SetupValues(this, anim);
     }
 
     public void StartEnemy(Vector3 pos)
@@ -44,8 +45,6 @@ public class AIThink_Base : MonoBehaviour
         float dist = Vector3.Distance(transform.position, MainManager.Player.player.position);
         if (dist > enemyType.preferredDistanceToPlayer)
         {
-            //Vector3 direction = MainManager.Player.player.position - transform.position;
-            //aiMove.MoveTo(transform.position + direction.normalized * 5, 0);
             aiMove.MoveTo(MainManager.Player.player.position, 0);
         }
         else
@@ -82,8 +81,12 @@ public class AIThink_Base : MonoBehaviour
 
     private void DamageEffect(Vector3 impactPoint, Vector3 faceNormal, bool isDamagedByPlayer)
     {
-        mat.SetColor("_Glow_Color", enemyType.glowEffectColor);
-        DOVirtual.Float(0, enemyType.glowEffectStrength, enemyType.glowEffectDuration, val => mat.SetFloat("_Glow_Strength", val)).SetLoops(2, LoopType.Yoyo);
+        foreach(SkinnedMeshRenderer mr in renderers)
+        {
+            Material mat = mr.material;
+            mat.SetColor("_Glow_Color", enemyType.glowEffectColor);
+            DOVirtual.Float(0, enemyType.glowEffectStrength, enemyType.glowEffectDuration, val => mat.SetFloat("_Glow_Strength", val)).SetLoops(2, LoopType.Yoyo);
+        }
 
         if(isDamagedByPlayer)
             MainManager.Effects.ShowHitMarker();
@@ -93,6 +96,8 @@ public class AIThink_Base : MonoBehaviour
 
         bloodParticles.transform.position = impactPoint;
         bloodParticles.Play();
+
+        anim?.SetTrigger("GotHit");
     }
 
     public virtual void PlaySound(AudioClip clip)

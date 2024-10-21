@@ -8429,7 +8429,7 @@ MonoBehaviour:
   spawnEnemies:
   - {fileID: 11400000, guid: 06b5e168a808ed445a4dd559dab10530, type: 2}
   - {fileID: 11400000, guid: d693091dae5f39f44ae6ad01905be383, type: 2}
-  - {fileID: 11400000, guid: 0928fcab8d9fd95499d4da4419abb609, type: 2}
+  - {fileID: 11400000, guid: 1991d1fa10512d94db23a02ea8f01e47, type: 2}
   spawnPositions:
   - {fileID: 135852952}
   - {fileID: 1639558934}
