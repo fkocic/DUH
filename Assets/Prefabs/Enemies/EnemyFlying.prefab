@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 1069260145369193265}
   - component: {fileID: 3553212098264137341}
   m_Layer: 0
-  m_Name: ZTRASHEnemyFlying
+  m_Name: EnemyFlying
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

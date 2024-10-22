@@ -21,4 +21,4 @@ MonoBehaviour:
   preferredDistanceToPlayer: 3
   glowEffectColor: {r: 1, g: 1, b: 1, a: 1}
   glowEffectDuration: 0.1
-  glowEffectStrength: 1
+  glowEffectStrength: 2.5

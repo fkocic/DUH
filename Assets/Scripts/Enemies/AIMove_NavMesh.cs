@@ -27,6 +27,9 @@ public class AIMove_NavMesh : AIMove_Base
     public override void SetPosition(Vector3 position)
     {
         NavMeshHit correctedPos;
+        Vector3 addedRandomness = Random.insideUnitSphere * 2;
+        addedRandomness.y = Mathf.Abs(addedRandomness.y);
+        position += addedRandomness;
 
         if (NavMesh.SamplePosition(position, out correctedPos, 3, NavMesh.AllAreas))
             agent.Warp(correctedPos.position);
@@ -35,6 +38,7 @@ public class AIMove_NavMesh : AIMove_Base
     public override void MoveTo(Vector3 destination, int counter)
     {
         agent.isStopped = false;
+
         NavMeshHit correctedPos;
 
         if (NavMesh.SamplePosition(destination, out correctedPos, 3, NavMesh.AllAreas))

@@ -24,6 +24,10 @@ public class AIMove_Flying : AIMove_Base
 
     public override void SetPosition(Vector3 position)
     {
+        Vector3 addedRandomness = Random.insideUnitSphere * 2;
+        addedRandomness.y = Mathf.Abs(addedRandomness.y) + flyHeight/2;
+        position += addedRandomness;
+
         transform.position = position;
     }
 
