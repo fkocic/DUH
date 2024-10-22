@@ -7,6 +7,7 @@ public class AIAttack_Base : MonoBehaviour
     public GunTemplate gun;
     public Transform gunMuzzle;
     public ParticleSystem particleMuzzle;
+    public float attackWindUpTime;
 
     [HideInInspector]public bool bulletInChamber;
     [HideInInspector]public AIThink_Base scriptMain;
@@ -31,7 +32,15 @@ public class AIAttack_Base : MonoBehaviour
         if (!bulletInChamber)
             return;
 
+        StartCoroutine(AttackWindUp());
+    }
+
+    private IEnumerator AttackWindUp()
+    {
         bulletInChamber = false;
+        anim?.SetTrigger("Shoot");
+
+        yield return new WaitForSeconds(attackWindUpTime);
 
         foreach (Mod_Base mod in gun.ModifiersShoot)
         {
@@ -39,10 +48,9 @@ public class AIAttack_Base : MonoBehaviour
         }
 
         PlayEffects();
-
         CheckProximity(gunMuzzle.position, gunMuzzle);
 
-        if(gameObject.activeInHierarchy)
+        if (gameObject.activeInHierarchy)
             StartCoroutine(FireRate());
     }
 
@@ -50,7 +58,6 @@ public class AIAttack_Base : MonoBehaviour
     {
         scriptMain.PlaySound(gun.soundShooting[Random.Range(0, gun.soundShooting.Length)]);
         particleMuzzle.Play();
-        anim?.SetTrigger("Shoot");
     }
 
     public virtual void CheckProximity(Vector3 spawnPos, Transform spawnSource)
@@ -95,5 +102,10 @@ public class AIAttack_Base : MonoBehaviour
     private void OnEnable()
     {
         bulletInChamber = true;
+    }
+
+    private void OnDisable()
+    {
+        StopAllCoroutines();
     }
 }

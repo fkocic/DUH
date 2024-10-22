@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 69c3b270d59e3b74f8c4cab772c30cc1, type: 3}
-  m_Name: EnemyGrounded
+  m_Name: GroundedVed
   m_EditorClassIdentifier: 
-  enemyName: Grounded
+  enemyName: Ved
   startHealth: 2
   moveSpeed: 4
-  turnSpeed: 4
-  aimSpeed: 6
+  turnSpeed: 2
+  aimSpeed: 4
   thinkFrequency: 0.2
   preferredDistanceToPlayer: 15
   glowEffectColor: {r: 1, g: 1, b: 1, a: 1}

@@ -2684,7 +2684,7 @@ MonoBehaviour:
   allEnemiesPrefabs:
   - {fileID: 907304014173505706, guid: 0081f0b2f1f27e94896bbf79d9c64ffb, type: 3}
   - {fileID: 2024093918097767465, guid: 5cf1649674a358746b83354af90549da, type: 3}
-  - {fileID: 5858988734203945835, guid: 17fd8d6ccc533a940abe4580446e7899, type: 3}
+  - {fileID: 6022404604912066030, guid: b1a75d4d5d71531459a02d1ec5b0cd1c, type: 3}
   - {fileID: 4305545289102687659, guid: 3f2fa70d67cdc8e439e6a98dbf0bbc85, type: 3}
   enemyPoolSize: 20
   enemyParent: {fileID: 8078184821549773228}

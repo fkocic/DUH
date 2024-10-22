@@ -8427,9 +8427,10 @@ MonoBehaviour:
   spawnInterval: 2
   spawnParticleDuration: 1
   spawnEnemies:
+  - {fileID: 11400000, guid: 0928fcab8d9fd95499d4da4419abb609, type: 2}
   - {fileID: 11400000, guid: 06b5e168a808ed445a4dd559dab10530, type: 2}
-  - {fileID: 11400000, guid: d693091dae5f39f44ae6ad01905be383, type: 2}
   - {fileID: 11400000, guid: 1991d1fa10512d94db23a02ea8f01e47, type: 2}
+  - {fileID: 11400000, guid: d693091dae5f39f44ae6ad01905be383, type: 2}
   spawnPositions:
   - {fileID: 135852952}
   - {fileID: 1639558934}
@@ -10891,7 +10892,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -14522,6 +14523,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 497580416}
     m_Modifications:
+    - target: {fileID: 37012175148094173, guid: 597b576dccd7bca42b423125e5d65595,
+        type: 3}
+      propertyPath: m_RenderShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1596537676408744371, guid: 597b576dccd7bca42b423125e5d65595,
         type: 3}
       propertyPath: m_Name
@@ -14577,20 +14583,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5871257926203743909, guid: 597b576dccd7bca42b423125e5d65595,
+    - target: {fileID: 2818565673477880289, guid: 597b576dccd7bca42b423125e5d65595,
         type: 3}
-      propertyPath: ColorModule.gradient.maxGradient.key1.a
-      value: 0.78431374
-      objectReference: {fileID: 0}
-    - target: {fileID: 6896485511405034109, guid: 597b576dccd7bca42b423125e5d65595,
-        type: 3}
-      propertyPath: lengthInSec
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6896485511405034109, guid: 597b576dccd7bca42b423125e5d65595,
-        type: 3}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 0.4
+      propertyPath: m_RenderShadows
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

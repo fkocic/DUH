@@ -8,6 +8,8 @@ public class AIAttack_Melee : AIAttack_Base
 
     public override void PlayEffects()
     {
+        anim?.SetTrigger("Shoot");
+        particleMuzzle.Play();
         StartCoroutine(stabDelay());
     }
 
