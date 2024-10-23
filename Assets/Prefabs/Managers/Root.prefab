@@ -2612,7 +2612,6 @@ GameObject:
   - component: {fileID: 8129565395490330206}
   - component: {fileID: 901558887074345228}
   - component: {fileID: 1782974180798816381}
-  - component: {fileID: 1449478273909016224}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -2765,27 +2764,6 @@ MonoBehaviour:
   txtAmmo: {fileID: 541856700087970689}
   txtSelectedWeapon: {fileID: 3210379440284284055}
   gunAudio: {fileID: 1938757645351810622}
---- !u!114 &1449478273909016224
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7761064562193391389}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99a39b1918d11ac4a9dd55084f2b2bc2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  musicClips:
-  - {fileID: 8300000, guid: 8ce845fd4afd4784fb7766c810cecd6e, type: 3}
-  - {fileID: 8300000, guid: 574db7abf3f4ec34f9fa1884f0130ca1, type: 3}
-  - {fileID: 8300000, guid: 3353b0f92d20dfc4ab0dc3ee8226c389, type: 3}
-  - {fileID: 8300000, guid: bc8acab542c46ce43bd6ad65f669d130, type: 3}
-  - {fileID: 8300000, guid: 9a26a84894c164d4294692d25356d9b4, type: 3}
-  musicAudioOne: {fileID: 1560604550054426250}
-  musicAudioTwo: {fileID: 8084687590196194259}
-  isPlayingMusic: 0
 --- !u!1 &7776784398698332619
 GameObject:
   m_ObjectHideFlags: 0
