@@ -61,6 +61,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Glow_Map:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -97,7 +101,7 @@ Material:
     m_Floats:
     - _AlphaClip: 0
     - _AlphaToMask: 0
-    - _AmbientStrength: 0.1
+    - _AmbientStrength: 0.73
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
     - _BumpScale: 1

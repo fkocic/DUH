@@ -44,46 +44,39 @@ public class AIMove_NavMesh : AIMove_Base
         if (NavMesh.SamplePosition(destination, out correctedPos, 3, NavMesh.AllAreas))
         {
             NavMesh.CalculatePath(transform.position, correctedPos.position, NavMesh.AllAreas, newPath);
-            if(newPath.status == NavMeshPathStatus.PathComplete)
+            if (newPath.status == NavMeshPathStatus.PathComplete)
             {
                 agent.SetPath(newPath);
                 LookAt(agent.steeringTarget, defaultTurnSpeed);
+                return;
             }
-            else
-            {
-                Wander();
-            }
-        }
-        else
-        {
-            Wander();
         }
 
-        //LookAt(correctedPos.position, defaultTurnSpeed);
+        LookAt(correctedPos.position, defaultTurnSpeed);
     }
 
-    private void Wander()
-    {
-        agent.isStopped = false;
-        if (newPath.status == NavMeshPathStatus.PathComplete && agent.hasPath)
-        {
-            LookAt(agent.steeringTarget, defaultTurnSpeed);
-        }
-        else
-        {
-            NavMeshHit wanderPos;
+    //private void Wander()
+    //{
+    //    agent.isStopped = false;
+    //    if (newPath.status == NavMeshPathStatus.PathComplete && agent.hasPath)
+    //    {
+    //        LookAt(agent.steeringTarget, defaultTurnSpeed);
+    //    }
+    //    else
+    //    {
+    //        NavMeshHit wanderPos;
 
-            if (NavMesh.SamplePosition(transform.position + Random.insideUnitSphere * wanderDistance, out wanderPos, wanderDistance, NavMesh.AllAreas))
-            {
-                NavMesh.CalculatePath(transform.position, wanderPos.position, NavMesh.AllAreas, newPath);
-                if (newPath.status == NavMeshPathStatus.PathComplete)
-                {
-                    agent.SetPath(newPath);
-                    LookAt(agent.steeringTarget, defaultTurnSpeed);
-                }
-            }
-        }
-    }
+    //        if (NavMesh.SamplePosition(transform.position + Random.insideUnitSphere * wanderDistance, out wanderPos, wanderDistance, NavMesh.AllAreas))
+    //        {
+    //            NavMesh.CalculatePath(transform.position, wanderPos.position, NavMesh.AllAreas, newPath);
+    //            if (newPath.status == NavMeshPathStatus.PathComplete)
+    //            {
+    //                agent.SetPath(newPath);
+    //                LookAt(agent.steeringTarget, defaultTurnSpeed);
+    //            }
+    //        }
+    //    }
+    //}
 
     public override void Stop()
     {

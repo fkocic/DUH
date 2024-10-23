@@ -92,7 +92,7 @@ Transform:
   m_GameObject: {fileID: 1828858060149363865}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.45}
+  m_LocalPosition: {x: 0, y: 0, z: 0.36}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -270,7 +270,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 0ed7a5eb7372110498273e306c424e22,
         type: 3}
       propertyPath: m_Name
-      value: EnemyGrdoba
+      value: FlyingGrdoba
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 0ed7a5eb7372110498273e306c424e22,
         type: 3}
@@ -621,10 +621,11 @@ MonoBehaviour:
   turnSpeed: 0
   defaultTurnSpeed: 0
   defaultMoveSpeed: 0
+  anim: {fileID: 0}
   colideLayer:
     serializedVersion: 2
     m_Bits: 1073745665
-  flyRandomness: 4
+  flyRandomness: 6
   flyHeight: 6
   heightRandomness: 2
   maxRecursions: 5
@@ -643,8 +644,10 @@ MonoBehaviour:
   gun: {fileID: 11400000, guid: 0e46e2f052e86184f8cccc87b2b1c18c, type: 2}
   gunMuzzle: {fileID: 2753553967680849383}
   particleMuzzle: {fileID: 3237578907477668187}
+  attackWindUpTime: 0
   bulletInChamber: 0
   scriptMain: {fileID: 0}
+  anim: {fileID: 0}
 --- !u!137 &1662072992564206723 stripped
 SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: -7546111626943174280, guid: 0ed7a5eb7372110498273e306c424e22,
