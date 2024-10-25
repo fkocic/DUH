@@ -9,7 +9,6 @@ public class AIMove_NavMesh : AIMove_Base
 
     [SerializeField] AnimationCurve jumpCurve = new AnimationCurve();
     [SerializeField] float jumpSpeed;
-    [SerializeField] float wanderDistance;
 
     Quaternion finalRotation;
     NavMeshPath newPath;
@@ -37,46 +36,23 @@ public class AIMove_NavMesh : AIMove_Base
 
     public override void MoveTo(Vector3 destination, int counter)
     {
-        agent.isStopped = false;
-
         NavMeshHit correctedPos;
 
-        if (NavMesh.SamplePosition(destination, out correctedPos, 3, NavMesh.AllAreas))
+        if (NavMesh.SamplePosition(destination, out correctedPos, 1.5f, NavMesh.AllAreas))
         {
             NavMesh.CalculatePath(transform.position, correctedPos.position, NavMesh.AllAreas, newPath);
             if (newPath.status == NavMeshPathStatus.PathComplete)
             {
+                agent.isStopped = false;
                 agent.SetPath(newPath);
                 LookAt(agent.steeringTarget, defaultTurnSpeed);
                 return;
             }
         }
 
+        //agent.isStopped = true;
         LookAt(correctedPos.position, defaultTurnSpeed);
     }
-
-    //private void Wander()
-    //{
-    //    agent.isStopped = false;
-    //    if (newPath.status == NavMeshPathStatus.PathComplete && agent.hasPath)
-    //    {
-    //        LookAt(agent.steeringTarget, defaultTurnSpeed);
-    //    }
-    //    else
-    //    {
-    //        NavMeshHit wanderPos;
-
-    //        if (NavMesh.SamplePosition(transform.position + Random.insideUnitSphere * wanderDistance, out wanderPos, wanderDistance, NavMesh.AllAreas))
-    //        {
-    //            NavMesh.CalculatePath(transform.position, wanderPos.position, NavMesh.AllAreas, newPath);
-    //            if (newPath.status == NavMeshPathStatus.PathComplete)
-    //            {
-    //                agent.SetPath(newPath);
-    //                LookAt(agent.steeringTarget, defaultTurnSpeed);
-    //            }
-    //        }
-    //    }
-    //}
 
     public override void Stop()
     {

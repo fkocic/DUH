@@ -1148,7 +1148,6 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   jumpSpeed: 1
-  wanderDistance: 5
 --- !u!114 &4883087102680931589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1161,7 +1160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4f3d1bb25d873e41bf8780ffcdcacfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gun: {fileID: 11400000, guid: 0e46e2f052e86184f8cccc87b2b1c18c, type: 2}
+  gun: {fileID: 11400000, guid: 98030bb4d62fdf34ab23761cb33c87bc, type: 2}
   gunMuzzle: {fileID: 5041741418357807767}
   particleMuzzle: {fileID: 6133737400306537634}
   attackWindUpTime: 0.4

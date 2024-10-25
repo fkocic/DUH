@@ -1088,7 +1088,7 @@ Transform:
   m_GameObject: {fileID: 135852951}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.24, y: 2, z: 0}
+  m_LocalPosition: {x: 4.24, y: 0.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3185,7 +3185,7 @@ Transform:
   m_GameObject: {fileID: 618286418}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.81, y: 6, z: -16.03}
+  m_LocalPosition: {x: 0.81, y: 4.1, z: -16.03}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8477,9 +8477,6 @@ MonoBehaviour:
   spawnParticleDuration: 1
   spawnEnemies:
   - {fileID: 11400000, guid: 0928fcab8d9fd95499d4da4419abb609, type: 2}
-  - {fileID: 11400000, guid: d693091dae5f39f44ae6ad01905be383, type: 2}
-  - {fileID: 11400000, guid: 1991d1fa10512d94db23a02ea8f01e47, type: 2}
-  - {fileID: 11400000, guid: 06b5e168a808ed445a4dd559dab10530, type: 2}
   spawnPositions:
   - {fileID: 135852952}
   - {fileID: 1639558934}
@@ -10663,7 +10660,7 @@ Transform:
   m_GameObject: {fileID: 1639558933}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.24, y: 2, z: -10.55}
+  m_LocalPosition: {x: 4.24, y: 0.1, z: -10.55}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14577,6 +14574,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerUpdated
       objectReference: {fileID: 0}
+    - target: {fileID: 2121989398149200566, guid: 597b576dccd7bca42b423125e5d65595,
+        type: 3}
+      propertyPath: realReloadTime
+      value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2644801229779786343, guid: 597b576dccd7bca42b423125e5d65595,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2795422624091773589, guid: 597b576dccd7bca42b423125e5d65595,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14627,15 +14634,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5821414340606999925, guid: 597b576dccd7bca42b423125e5d65595,
+    - target: {fileID: 7931464141125335073, guid: 597b576dccd7bca42b423125e5d65595,
         type: 3}
-      propertyPath: m_CastShadows
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6486419743335369333, guid: 597b576dccd7bca42b423125e5d65595,
-        type: 3}
-      propertyPath: m_CastShadows
-      value: 0
+      propertyPath: m_LocalPosition.y
+      value: -0.9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

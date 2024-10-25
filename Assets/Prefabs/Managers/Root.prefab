@@ -2687,7 +2687,7 @@ MonoBehaviour:
   - {fileID: 4305545289102687659, guid: 3f2fa70d67cdc8e439e6a98dbf0bbc85, type: 3}
   enemyPoolSize: 20
   enemyParent: {fileID: 8078184821549773228}
-  enemySpawnPrefab: {fileID: 3008537871256057312, guid: 351c4302a028b424382fca5c77e10553,
+  enemySpawnPrefab: {fileID: 6913192924627623666, guid: 42299290f479aa448bf58df5ca8fdaa7,
     type: 3}
   enemyDiePrefab: {fileID: 8667267623466145932, guid: bd325428226fa2343903e7df0d37894d,
     type: 3}
@@ -2756,8 +2756,8 @@ MonoBehaviour:
   - {fileID: 0}
   pickedGuns: []
   activeGun: {fileID: 0}
-  activePosition: {x: 0.1, y: -0.2, z: 0.3}
-  inactivePosition: {x: 0.1, y: -0.8, z: 0.3}
+  activePosition: {x: 0.13, y: -0.2, z: 0.3}
+  inactivePosition: {x: 0.13, y: -0.8, z: 0.3}
   switchSpeed: 0.6
   swayStrength: 1
   swaySpeed: 5
