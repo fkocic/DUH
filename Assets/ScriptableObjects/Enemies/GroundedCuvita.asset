@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Cuvita
   startHealth: 2
-  moveSpeed: 4
+  moveSpeed: 3
   turnSpeed: 4
   aimSpeed: 6
   thinkFrequency: 0.2
   preferredDistanceToPlayer: 3
   glowEffectColor: {r: 1, g: 1, b: 1, a: 1}
   glowEffectDuration: 0.1
-  glowEffectStrength: 2.5
+  glowEffectStrength: 3

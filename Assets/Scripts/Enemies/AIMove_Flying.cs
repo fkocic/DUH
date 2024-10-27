@@ -34,6 +34,7 @@ public class AIMove_Flying : AIMove_Base
     public override void MoveTo(Vector3 destination, int counter)
     {
         counter++;
+
         correctedDestination = destination;
         addedRandomness = Random.insideUnitSphere * flyRandomness;
         addedRandomness.y = Mathf.Abs(addedRandomness.y);
@@ -58,7 +59,7 @@ public class AIMove_Flying : AIMove_Base
     private void AddForceTowards(Vector3 destination)
     {
         float dist = Vector3.Distance(transform.position, destination);
-        dist = Mathf.Clamp(dist, 0f, 3f);
+        dist = Mathf.Clamp(dist, 0.1f, 2f);
 
         Vector3 direction = destination - transform.position;
         rb.AddForce(direction * moveSpeed * Time.fixedDeltaTime * dist, ForceMode.Force);

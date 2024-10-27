@@ -602,6 +602,7 @@ MonoBehaviour:
   - {fileID: 7411307355142547726}
   - {fileID: 8722990725020929326}
   - {fileID: 8010491419663906739}
+  anim: {fileID: 9005503063093381172}
   colideLayer:
     serializedVersion: 2
     m_Bits: 3221229313
@@ -625,7 +626,7 @@ MonoBehaviour:
   colideLayer:
     serializedVersion: 2
     m_Bits: 1073745665
-  flyRandomness: 6
+  flyRandomness: 8
   flyHeight: 6
   heightRandomness: 2
   maxRecursions: 5

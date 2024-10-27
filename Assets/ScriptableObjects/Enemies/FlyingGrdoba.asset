@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Grdoba
   startHealth: 4
-  moveSpeed: 150
+  moveSpeed: 300
   turnSpeed: 2
   aimSpeed: 8
   thinkFrequency: 0.2
   preferredDistanceToPlayer: 15
   glowEffectColor: {r: 1, g: 1, b: 1, a: 1}
   glowEffectDuration: 0.1
-  glowEffectStrength: 2.5
+  glowEffectStrength: 3

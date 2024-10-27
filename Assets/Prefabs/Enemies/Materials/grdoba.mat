@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: grdoba
-  m_Shader: {fileID: -6465566751694194690, guid: 0c255ea3c0d859e48b81e0eaa8641709,
+  m_Shader: {fileID: -6465566751694194690, guid: db0ae0bdbe2490545a0ab64278633f7f,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -53,7 +53,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: ad5c757c50d9796499ec1be6a87d5465, type: 3}
+        m_Texture: {fileID: 2800000, guid: 1c633830e448a114f9343864bc960905, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -88,7 +88,7 @@ Material:
     m_Floats:
     - _AlphaClip: 0
     - _AlphaToMask: 0
-    - _AmbientStrength: 0.1
+    - _AmbientStrength: 0.3
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
     - _BumpScale: 1

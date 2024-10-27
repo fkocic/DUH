@@ -464,6 +464,7 @@ MonoBehaviour:
   renderers:
   - {fileID: 7207473469898867942}
   - {fileID: 8741624148945190684}
+  anim: {fileID: 7518619551729024005}
   colideLayer:
     serializedVersion: 2
     m_Bits: 3221229313
@@ -506,6 +507,7 @@ MonoBehaviour:
   gun: {fileID: 0}
   gunMuzzle: {fileID: 0}
   particleMuzzle: {fileID: 0}
+  attackWindUpTime: 0
   bulletInChamber: 0
   scriptMain: {fileID: 0}
   anim: {fileID: 0}

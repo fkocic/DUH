@@ -1303,6 +1303,7 @@ MonoBehaviour:
   renderers:
   - {fileID: 2193177216275842617}
   - {fileID: 2668674702649609073}
+  anim: {fileID: 7072099529159468263}
   colideLayer:
     serializedVersion: 2
     m_Bits: 3221229313
@@ -1357,7 +1358,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   jumpSpeed: 1
-  wanderDistance: 5
+  enemySize: 2
 --- !u!114 &5970941663503286686
 MonoBehaviour:
   m_ObjectHideFlags: 0

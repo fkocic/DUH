@@ -18,7 +18,7 @@ MonoBehaviour:
   turnSpeed: 2
   aimSpeed: 4
   thinkFrequency: 0.2
-  preferredDistanceToPlayer: 15
+  preferredDistanceToPlayer: 10
   glowEffectColor: {r: 1, g: 1, b: 1, a: 1}
   glowEffectDuration: 0.1
-  glowEffectStrength: 2.5
+  glowEffectStrength: 3

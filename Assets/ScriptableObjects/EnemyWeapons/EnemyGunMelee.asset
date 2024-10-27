@@ -63,7 +63,7 @@ MonoBehaviour:
   proximityCollisionMask:
     serializedVersion: 2
     m_Bits: 3221229313
-  proximityRadius: 3.5
+  proximityRadius: 5
   bulletSpawnDistance: 100
   soundShooting:
   - {fileID: 8300000, guid: e690c67faf10fae4d866a9439630c3e2, type: 3}

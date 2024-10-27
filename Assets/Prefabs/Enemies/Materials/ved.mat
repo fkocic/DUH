@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: ved
-  m_Shader: {fileID: -6465566751694194690, guid: 0c255ea3c0d859e48b81e0eaa8641709,
+  m_Shader: {fileID: -6465566751694194690, guid: db0ae0bdbe2490545a0ab64278633f7f,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -88,7 +88,7 @@ Material:
     m_Floats:
     - _AlphaClip: 0
     - _AlphaToMask: 0
-    - _AmbientStrength: 0.25
+    - _AmbientStrength: 0.3
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
     - _BumpScale: 1

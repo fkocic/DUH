@@ -23,7 +23,7 @@ MonoBehaviour:
   speed: 10
   size: 0.1
   duration: 4
-  forceOverLifetime: {x: 0, y: 8, z: 0}
+  forceOverLifetime: {x: 0, y: 9, z: 0}
   cameraShakeIntensity: 0
   cameraShakeDuration: 0
   bulletTrailColor:

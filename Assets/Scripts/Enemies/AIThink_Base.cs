@@ -9,6 +9,7 @@ public class AIThink_Base : MonoBehaviour
     [HideInInspector]public float health;
     public ParticleSystem bloodParticles;
     public SkinnedMeshRenderer[] renderers;
+    public Animator anim;
 
     public LayerMask colideLayer;
     RaycastHit hit;
@@ -17,7 +18,6 @@ public class AIThink_Base : MonoBehaviour
     AIAttack_Base aiAttack;
 
     AudioSource aud;
-    Animator anim;
 
     public void SetupValues()
     {
@@ -25,7 +25,6 @@ public class AIThink_Base : MonoBehaviour
         aiAttack = GetComponent<AIAttack_Base>();
 
         aud = GetComponent<AudioSource>();
-        anim = GetComponent<Animator>();
 
         aiMove.SetupValues(enemyType.moveSpeed, enemyType.turnSpeed, anim);
         aiAttack.SetupValues(this, anim);
@@ -49,7 +48,7 @@ public class AIThink_Base : MonoBehaviour
         }
         else
         {
-            if (Physics.Raycast(transform.position, MainManager.Player.player.position - transform.position, out hit, enemyType.preferredDistanceToPlayer, colideLayer, QueryTriggerInteraction.Ignore))
+            if (Physics.Raycast(aiAttack.gunMuzzle.position, MainManager.Player.player.position - aiAttack.gunMuzzle.position, out hit, enemyType.preferredDistanceToPlayer, colideLayer, QueryTriggerInteraction.Ignore))
             {
                 if (hit.collider.gameObject.CompareTag("Player"))
                 {
