@@ -41,11 +41,17 @@ Material:
         m_Texture: {fileID: 2800000, guid: d8813fdccd2ceae4b8ec5a578cddf548, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Glow_Map:
+        m_Texture: {fileID: 2800000, guid: c0abb35b45ece92468d6d271a249ca4d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: b3e055858abd89942b2edd7235bcb6fe, type: 3}
+        m_Texture: {fileID: 2800000, guid: de88a8e5e6d95e24abe53418bf8e9c91, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
-    m_Floats: []
-    m_Colors: []
+    m_Floats:
+    - _Glow_Strength: 5
+    m_Colors:
+    - _Glow_Color: {r: 1, g: 1, b: 1, a: 0}
   m_BuildTextureStacks: []
