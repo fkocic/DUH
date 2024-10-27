@@ -8,10 +8,10 @@ public class VaultMovement : MovementType
     [SerializeField]
     private LayerMask vaultLayer;
 
-    Vector3 vaultOver;
-    Vector3 vaultDir;
+    public Vector3 vaultOver;
+    public Vector3 vaultDir;
 
-    GameObject vaultHelper;
+    public GameObject vaultHelper;
 
     void CreateVaultHelper()
     {
@@ -21,6 +21,9 @@ public class VaultMovement : MovementType
 
     void SetVaultHelper()
     {
+        if (vaultHelper == null)
+            CreateVaultHelper();
+
         vaultHelper.transform.position = vaultOver;
         vaultHelper.transform.rotation = Quaternion.LookRotation(vaultDir);
     }

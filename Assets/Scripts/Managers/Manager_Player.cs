@@ -14,9 +14,13 @@ public class Manager_Player : MonoBehaviour
     public float maxHealth;
     public int jumpTimes = 1;
     public float speedModifier = 1;
+    public bool isDead = false;
 
     [Header("UI")]
     public TMP_Text txtHealth;
+    public GameObject crosshair;
+    public GameObject hud;
+    public GameObject gameOverPanel;
 
     [Header("Modifiers")]
     public List<Mod_Base> ModifiersPickup = new List<Mod_Base>();
@@ -38,6 +42,9 @@ public class Manager_Player : MonoBehaviour
         health = Mathf.Clamp(health, 0, maxHealth);
 
         UIHealth();
+
+        if (health <= 0)
+            Die();
     }
 
     public void IncreasePlayerSpeed()
@@ -70,6 +77,18 @@ public class Manager_Player : MonoBehaviour
     {               
         ModifiersPickup.Add(mod);        
         mod.PermanentModifyPlayer();
+    }
+
+    public void Die()
+    {
+        isDead = true;
+        MainManager.Player.player.GetComponent<PlayerInput>().isDead = true;
+        hud.SetActive(false);
+        crosshair.SetActive(false);
+        gameOverPanel.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        Debug.Log("AAAA");
     }
 
     #region UI

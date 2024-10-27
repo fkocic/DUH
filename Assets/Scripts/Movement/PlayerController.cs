@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
     float stamina;
 
     public StatusEvent onStatusChange;
-    List<MovementType> movements;
+    public List<MovementType> movements;
     WallrunMovement wallrun;
     SurfaceSwimmingMovement swimming;
 

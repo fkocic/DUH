@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 1485561070201824553}
   - component: {fileID: 8418073643020576313}
   - component: {fileID: 6333866199938753919}
+  - component: {fileID: 1125595715551335273}
   m_Layer: 30
   m_Name: EnemyGrounded
   m_TagString: Untagged
@@ -274,6 +275,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gun: {fileID: 11400000, guid: 0e46e2f052e86184f8cccc87b2b1c18c, type: 2}
   gunMuzzle: {fileID: 6063836279920796885}
+--- !u!114 &1125595715551335273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5858988734203945835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4455d41f24d4be41b994c95c14d0663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupType: 0
 --- !u!1 &6469582998289653033
 GameObject:
   m_ObjectHideFlags: 0

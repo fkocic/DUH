@@ -8,20 +8,43 @@ public class TestSpawner : MonoBehaviour
     public EnemyTemplate[] spawnEnemies;
     public Transform[] spawnPositions;
 
+    public int maxEnemyNumber = 20;
+    public int enemyNumber;
+
     private void Start()
+    {       
+        enemyNumber = 0;
+        StartCoroutine(checkForManager());        
+    }
+
+    private IEnumerator checkForManager()
     {
-        StartCoroutine(waitInterval());
+        yield return new WaitForSeconds(spawnInterval);
+
+        if (MainManager.Game)
+            StartCoroutine(waitInterval());
+        else
+            StartCoroutine(checkForManager());                    
     }
 
     private IEnumerator waitInterval()
     {
-        yield return new WaitForSeconds(spawnInterval);
-        StartCoroutine(SpawnEnemy());
-        StartCoroutine(waitInterval());
+        if (enemyNumber < maxEnemyNumber && MainManager.Game)
+        {
+            yield return new WaitForSeconds(spawnInterval);
+            StartCoroutine(SpawnEnemy());
+            StartCoroutine(waitInterval());
+            enemyNumber++;
+        }
+        
+
+        if (enemyNumber > maxEnemyNumber)
+            MainManager.Game.isLevelOver = true;
     }
 
     private IEnumerator SpawnEnemy()
     {
+        maxEnemyNumber = MainManager.Game.enemyNumber;
         Vector3 pos = spawnPositions[Random.Range(0, spawnPositions.Length)].position;
         MainManager.Pooling.PlaceParticle(enemyParticleType.spawn, pos);
 

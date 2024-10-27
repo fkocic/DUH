@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 173833902363896791}
   - component: {fileID: 3344963940438868714}
   - component: {fileID: 1069260145369193265}
+  - component: {fileID: 170340201432970378}
   m_Layer: 0
   m_Name: EnemyFlying
   m_TagString: Untagged
@@ -168,6 +169,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gun: {fileID: 11400000, guid: 0e46e2f052e86184f8cccc87b2b1c18c, type: 2}
   gunMuzzle: {fileID: 3262320380278425213}
+--- !u!114 &170340201432970378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 786952266029758472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4455d41f24d4be41b994c95c14d0663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupType: 0
 --- !u!1 &1349128831108882409
 GameObject:
   m_ObjectHideFlags: 0
