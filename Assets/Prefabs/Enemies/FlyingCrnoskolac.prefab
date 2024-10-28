@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 7627705793013783253}
   - component: {fileID: 4473173001401649011}
   - component: {fileID: 2770673206149013168}
+  - component: {fileID: 4647323440261541840}
   m_Layer: 0
   m_Name: FlyingCrnoskolac
   m_TagString: Untagged
@@ -333,6 +334,19 @@ MonoBehaviour:
   bulletInChamber: 0
   scriptMain: {fileID: 0}
   anim: {fileID: 0}
+--- !u!114 &4647323440261541840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9903882725602386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4455d41f24d4be41b994c95c14d0663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupType: 0
 --- !u!1 &61971717188353420
 GameObject:
   m_ObjectHideFlags: 0

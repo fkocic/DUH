@@ -792,6 +792,7 @@ GameObject:
   - component: {fileID: 3426042196693167488}
   - component: {fileID: 2617541431755533559}
   - component: {fileID: 3073674506922935124}
+  - component: {fileID: -6386877534499041501}
   m_Layer: 30
   m_Name: GroundedKudlak
   m_TagString: Untagged
@@ -1075,6 +1076,19 @@ MonoBehaviour:
   bulletInChamber: 0
   scriptMain: {fileID: 0}
   anim: {fileID: 0}
+--- !u!114 &-6386877534499041501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4473054572546411737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4455d41f24d4be41b994c95c14d0663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupType: 0
 --- !u!1 &4489710019547655094
 GameObject:
   m_ObjectHideFlags: 0
