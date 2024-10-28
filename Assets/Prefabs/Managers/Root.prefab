@@ -2684,6 +2684,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: fbd940d868e91744193978c9014a7ae0, type: 2}
   - {fileID: 11400000, guid: fdf314419d3035f47a6828abda7a7a5e, type: 2}
   - {fileID: 11400000, guid: 45b5c75429cbf56469d722478d1b7d8a, type: 2}
+  - {fileID: 11400000, guid: 0e8eba58b12b12f46b867cdc6d5b1570, type: 2}
   allEnemiesPrefabs:
   - {fileID: 907304014173505706, guid: 0081f0b2f1f27e94896bbf79d9c64ffb, type: 3}
   - {fileID: 2024093918097767465, guid: 5cf1649674a358746b83354af90549da, type: 3}
@@ -2692,6 +2693,7 @@ MonoBehaviour:
   - {fileID: 4473054572546411737, guid: ab29d491daf3ff04abecceac794a9ac2, type: 3}
   - {fileID: 4051848027737871987, guid: 309212187c91bb840a8a7d53d3ef12ee, type: 3}
   - {fileID: 9903882725602386, guid: 6eeb44da756386f419672930b270d174, type: 3}
+  - {fileID: 6115456855997533239, guid: 24bad76cdaf9f754da62d3fa10e524e0, type: 3}
   enemyPoolSize: 20
   enemyParent: {fileID: 8078184821549773228}
   enemySpawnPrefab: {fileID: 6913192924627623666, guid: 42299290f479aa448bf58df5ca8fdaa7,

@@ -66,7 +66,7 @@ MonoBehaviour:
   proximityRadius: 3
   bulletSpawnDistance: 1
   soundShooting:
-  - {fileID: 8300000, guid: e6b2babb1e4ec91468d311897b2e37cd, type: 3}
+  - {fileID: 8300000, guid: 14a2655678437c745bd5ecca8da41d3e, type: 3}
   soundReload: {fileID: 8300000, guid: fc7644d6d65504242b7d3f605695ea62, type: 3}
   soundEmpty: {fileID: 8300000, guid: 132037694544e9044b90a22c44be3a83, type: 3}
   ModifiersPickup: []

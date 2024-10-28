@@ -5716,7 +5716,7 @@ PrefabInstance:
     - target: {fileID: 8122570419392997392, guid: d0bdfd47b4cf42e40a864d2caf400579,
         type: 3}
       propertyPath: ShapeModule.angle
-      value: 75
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 8122570419392997392, guid: d0bdfd47b4cf42e40a864d2caf400579,
         type: 3}
@@ -5786,12 +5786,12 @@ PrefabInstance:
     - target: {fileID: 9112737185261235400, guid: d0bdfd47b4cf42e40a864d2caf400579,
         type: 3}
       propertyPath: InitialModule.startSize.scalar
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9112737185261235400, guid: d0bdfd47b4cf42e40a864d2caf400579,
         type: 3}
       propertyPath: InitialModule.startSize.minScalar
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 9112737185261235400, guid: d0bdfd47b4cf42e40a864d2caf400579,
         type: 3}
@@ -8701,7 +8701,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1416206461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8717,7 +8717,7 @@ MonoBehaviour:
   spawnInterval: 2
   spawnParticleDuration: 1
   spawnEnemies:
-  - {fileID: 11400000, guid: 45b5c75429cbf56469d722478d1b7d8a, type: 2}
+  - {fileID: 11400000, guid: 0e8eba58b12b12f46b867cdc6d5b1570, type: 2}
   spawnPositions:
   - {fileID: 135852952}
   - {fileID: 1639558934}
@@ -15011,8 +15011,8 @@ SceneRoots:
   m_Roots:
   - {fileID: 497580416}
   - {fileID: 1472340290}
+  - {fileID: 1830554634}
   - {fileID: 94367906}
   - {fileID: 202457387}
-  - {fileID: 1830554634}
   - {fileID: 1416206462}
   - {fileID: 525114497}

@@ -144,7 +144,7 @@ public class Gun_Base : MonoBehaviour
     {
         isReloading = false;
         gunAnimator = GetComponentInChildren<Animator>();
-        gunAnimator.keepAnimatorStateOnDisable = true;
+        //gunAnimator.keepAnimatorStateOnDisable = true;
         UpdateAnimationReload();
 
         if (bulletInChamber == false)
