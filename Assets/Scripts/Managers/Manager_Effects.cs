@@ -57,13 +57,13 @@ public class Manager_Effects : MonoBehaviour
         {
             Vector3 localLeftRight = player.InverseTransformDirection(leftRight);
             if (localLeftRight.x < 0)
-                scriptIndicator.ShowIndicator(0);
+                scriptIndicator?.ShowIndicator(0);
             else
-                scriptIndicator.ShowIndicator(1);
+                scriptIndicator?.ShowIndicator(1);
         }
         else
         {
-            scriptIndicator.ShowIndicator(2);
+            scriptIndicator?.ShowIndicator(2);
         }
     }
 
