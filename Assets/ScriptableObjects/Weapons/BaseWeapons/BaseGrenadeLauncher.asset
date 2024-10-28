@@ -16,7 +16,7 @@ MonoBehaviour:
   gunName: Grenade Launcher
   gunDescription: 
   isPlayerGun: 1
-  reloadSpeed: 2
+  reloadSpeed: 3
   rateOfFireRPM: 45
   spread: 0
   damage: 10

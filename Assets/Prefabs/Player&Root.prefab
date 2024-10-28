@@ -573,6 +573,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1782974180798816381, guid: 2989fed040fc00b468dae37f4757b7ba,
         type: 3}
+      propertyPath: particleSteam
+      value: 
+      objectReference: {fileID: 3868947122296133648}
+    - target: {fileID: 1782974180798816381, guid: 2989fed040fc00b468dae37f4757b7ba,
+        type: 3}
+      propertyPath: inactivePosition.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1782974180798816381, guid: 2989fed040fc00b468dae37f4757b7ba,
+        type: 3}
       propertyPath: pickedGuns.Array.size
       value: 4
       objectReference: {fileID: 0}
@@ -1677,6 +1687,12 @@ Transform:
 --- !u!4 &3811132820524715494 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7931464141125335073, guid: 597b576dccd7bca42b423125e5d65595,
+    type: 3}
+  m_PrefabInstance: {fileID: 6553271299705370055}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &3868947122296133648 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8016591427616665047, guid: 597b576dccd7bca42b423125e5d65595,
     type: 3}
   m_PrefabInstance: {fileID: 6553271299705370055}
   m_PrefabAsset: {fileID: 0}

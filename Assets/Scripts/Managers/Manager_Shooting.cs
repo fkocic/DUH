@@ -29,6 +29,7 @@ public class Manager_Shooting : MonoBehaviour
 
     [Header("Audio")]
     public AudioSource gunAudio;
+    public ParticleSystem particleSteam;
 
     public void SetupValues()
     {
@@ -132,7 +133,9 @@ public class Manager_Shooting : MonoBehaviour
 
     private void DeactivateGun()
     {
-        pickedGuns[previousGun].gameObject.SetActive(false);
+        //pickedGuns[previousGun].gameObject.SetActive(false);
+        foreach(Transform t in pickedGuns)
+        { t.gameObject.SetActive(false); }
         ActivateGun();
     }
 
@@ -156,12 +159,17 @@ public class Manager_Shooting : MonoBehaviour
 
     #endregion
 
-    #region Audio
+    #region Effects
 
     public void PlayAudio(AudioClip clip)
     {
         gunAudio.pitch = Random.Range(0.97f, 1.03f);
         gunAudio.PlayOneShot(clip);
+    }
+
+    public void PlayParticle()
+    {
+        particleSteam.Play();
     }
 
     #endregion
