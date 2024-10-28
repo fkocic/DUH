@@ -2613,6 +2613,8 @@ GameObject:
   - component: {fileID: 8129565395490330206}
   - component: {fileID: 901558887074345228}
   - component: {fileID: 1782974180798816381}
+  - component: {fileID: 6979148772314119282}
+  - component: {fileID: 4988989674005318200}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -2740,7 +2742,11 @@ MonoBehaviour:
   player: {fileID: 0}
   health: 50
   maxHealth: 100
+  jumpTimes: 0
+  speedModifier: 1
   txtHealth: {fileID: 4371449110544014294}
+  ModifiersPickup: []
+  speedIncrement: 0.1
 --- !u!114 &1782974180798816381
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2773,12 +2779,18 @@ MonoBehaviour:
   txtAmmo: {fileID: 541856700087970689}
   txtSelectedWeapon: {fileID: 3210379440284284055}
   gunAudio: {fileID: 1938757645351810622}
+<<<<<<< HEAD
 --- !u!1 &7776784398698332619
 GameObject:
+=======
+--- !u!114 &6979148772314119282
+MonoBehaviour:
+>>>>>>> dev-level-generation
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3811657323392400992}
@@ -2902,6 +2914,32 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+=======
+  m_GameObject: {fileID: 7761064562193391389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f8d626b7c1a4fd40beb953864553aa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthPickups: []
+  ammoPickups: []
+  modPickups: []
+  noDropNumber: 10
+--- !u!114 &4988989674005318200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7761064562193391389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c4bcdc06ae6965458cafef199951ac4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyNumber: 20
+  isLevelOver: 0
+>>>>>>> dev-level-generation
 --- !u!1 &8116274186677590444
 GameObject:
   m_ObjectHideFlags: 0

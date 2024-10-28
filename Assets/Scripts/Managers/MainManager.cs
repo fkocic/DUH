@@ -8,12 +8,10 @@ public class MainManager : MonoBehaviour
     public static Manager_Player Player;
     public static Manager_Effects Effects;
     public static Manager_Shooting Shooting;
-<<<<<<< HEAD
+
     public static Manager_Audio Audio;
-=======
     public static Manager_Spawning Spawning;
     public static Manager_Game Game;
->>>>>>> dev-level-generation
 
     private void Start()
     {
@@ -21,12 +19,10 @@ public class MainManager : MonoBehaviour
         Player = GetComponent<Manager_Player>();
         Effects = GetComponent<Manager_Effects>();
         Shooting = GetComponent<Manager_Shooting>();
-<<<<<<< HEAD
         Audio = GetComponent<Manager_Audio>();
-=======
         Spawning = GetComponent<Manager_Spawning>();
         Game = GetComponent<Manager_Game>();
->>>>>>> dev-level-generation
+
 
         Pooling?.SetupValues();
         Player?.SetupValues();
