@@ -108,7 +108,7 @@ public class Manager_Shooting : MonoBehaviour
         PutGunDown();
     }
 
-    private void PutGunDown()
+    public void PutGunDown()
     {
         if (previousGun == -1)
         {

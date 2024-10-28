@@ -75,7 +75,17 @@ public class AIThink_Base : MonoBehaviour
         DamageEffect(impactPoint, faceNormal, isDamagedByPlayer);
 
         if (health <= 0)
+        {
+            Pickup_Spawner spawner = gameObject.GetComponent<Pickup_Spawner>();
+            if (spawner != null)
+            {
+                spawner.SpawnPickup();
+                Debug.Log("Drop spawned");
+            }
+
             gameObject.SetActive(false);
+        }
+            
     }
 
     private void DamageEffect(Vector3 impactPoint, Vector3 faceNormal, bool isDamagedByPlayer)

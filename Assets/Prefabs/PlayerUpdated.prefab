@@ -251,13 +251,18 @@ MonoBehaviour:
   jumpSpeed: 9
   gravity: 20
   antiBumpFactor: 0.75
+  jumpTimes: 0
   moveDirection: {x: 0, y: 0, z: 0}
   contactPoint: {x: 0, y: 0, z: 0}
   controller: {fileID: 0}
   playerControl: 0
   grounded: 0
   jump: {x: 0, y: 0, z: 0}
+  jumpCounter: 1
   speed: 0
+  speedChange:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &9034111798928785608
 MonoBehaviour:
   m_ObjectHideFlags: 0

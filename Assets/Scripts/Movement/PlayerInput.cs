@@ -4,15 +4,25 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
+    public bool isDead = false;
+
     public Vector2 input
     {
         get
         {
-            Vector2 i = Vector2.zero;
-            i.x = Input.GetAxis("Horizontal");
-            i.y = Input.GetAxis("Vertical");
-            i *= (i.x != 0.0f && i.y != 0.0f) ? .7071f : 1.0f;
-            return i;
+            if (!isDead)
+            {
+                Vector2 i = Vector2.zero;
+                i.x = Input.GetAxis("Horizontal");
+                i.y = Input.GetAxis("Vertical");
+                i *= (i.x != 0.0f && i.y != 0.0f) ? .7071f : 1.0f;
+                return i;
+            }
+            else
+            {
+                return new Vector2(0.0f, 0.0f);    
+            }
+            
         }
     }
 
@@ -127,7 +137,7 @@ public class PlayerInput : MonoBehaviour
             jump = false;
             jumpTimer++;
         }
-        else if (jumpTimer > 0)
+        else if (jumpTimer > 0 && !isDead)
             jump = true;
     }
 

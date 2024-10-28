@@ -9,14 +9,12 @@ public class PlayerMovement : InterpolatedTransform
     public float walkSpeed = 4.0f;
     public float runSpeed = 8.0f;
     public float crouchSpeed = 2f;
-    [SerializeField]
-    private float jumpSpeed = 8.0f;
+    public float jumpSpeed = 8.0f;
     [SerializeField]
     private float gravity = 20.0f;
     [SerializeField]
     private float antiBumpFactor = .75f;
-    [SerializeField]
-    private int jumpTimes = 1;
+    public int jumpTimes = 1;
     [HideInInspector]
     public Vector3 moveDirection = Vector3.zero;
     [HideInInspector]
@@ -38,6 +36,8 @@ public class PlayerMovement : InterpolatedTransform
 
     public float speed;
 
+    public UnityEvent speedChange = new UnityEvent();
+
     public override void OnEnable()
     {
         base.OnEnable();
@@ -46,13 +46,27 @@ public class PlayerMovement : InterpolatedTransform
 
     private void Awake()
     {
-        controller = GetComponent<CharacterController>();
-        jumpCounter = jumpTimes - 1;
+        controller = GetComponent<CharacterController>();       
     }
 
     public void AddToReset(UnityAction call)
     {
         onReset.AddListener(call);
+    }
+
+    public void SetMovementValues()
+    {
+        /*
+        walkSpeed *= speedModifier;
+        runSpeed *= speedModifier;
+        crouchSpeed *= speedModifier;
+        jumpSpeed *= speedModifier;
+        */
+        walkSpeed *= MainManager.Player.speedModifier;
+        runSpeed *= MainManager.Player.speedModifier;
+        crouchSpeed *= MainManager.Player.speedModifier;
+        jumpSpeed *= MainManager.Player.speedModifier;
+        jumpTimes = MainManager.Player.jumpTimes;
     }
 
     public override void ResetPositionTo(Vector3 resetTo)

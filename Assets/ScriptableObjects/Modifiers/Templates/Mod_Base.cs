@@ -47,7 +47,7 @@ public abstract class Mod_Base : ScriptableObject
         }
         else if(modType == ModType.player) 
         {
-            //player
+            MainManager.Player.AttachModifier(this);
         }
         else
         {

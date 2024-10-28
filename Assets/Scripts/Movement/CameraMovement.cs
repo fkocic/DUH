@@ -32,6 +32,9 @@ public class CameraMovement : MonoBehaviour
 
     void Update()
     {
+        if (MainManager.Player.isDead)
+            return;
+
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         // Allow the script to clamp based on a desired target value.
