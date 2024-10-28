@@ -95,7 +95,7 @@ public class Manager_Player : MonoBehaviour
 
     public void UIHealth()
     {
-        txtHealth.text = health.ToString() + "/" + maxHealth.ToString();
+        txtHealth.text = health.ToString("F0") + "/" + maxHealth.ToString("F0");
     }
 
     #endregion
