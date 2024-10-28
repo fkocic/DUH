@@ -17,7 +17,7 @@ MonoBehaviour:
   gunDescription: 
   isPlayerGun: 0
   reloadSpeed: 1
-  rateOfFireRPM: 120
+  rateOfFireRPM: 30
   spread: 0.1
   damage: 1
   speed: 30
@@ -63,9 +63,10 @@ MonoBehaviour:
   proximityCollisionMask:
     serializedVersion: 2
     m_Bits: 3221229313
-  proximityRadius: 0
-  bulletSpawnDistance: 0
-  soundShooting: []
+  proximityRadius: 5
+  bulletSpawnDistance: 100
+  soundShooting:
+  - {fileID: 8300000, guid: e690c67faf10fae4d866a9439630c3e2, type: 3}
   soundReload: {fileID: 0}
   soundEmpty: {fileID: 0}
   ModifiersPickup: []

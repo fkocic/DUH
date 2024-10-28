@@ -24,7 +24,7 @@ MonoBehaviour:
   size: 0.05
   duration: 2
   forceOverLifetime: {x: 0, y: 0, z: 0}
-  cameraShakeIntensity: 4
+  cameraShakeIntensity: 6
   cameraShakeDuration: 0.3
   bulletTrailColor:
     serializedVersion: 2

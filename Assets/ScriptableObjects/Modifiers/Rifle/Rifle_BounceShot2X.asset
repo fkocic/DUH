@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01c27708414573848b49615b17a64c48, type: 3}
+  m_Name: Rifle_BounceShot2X
+  m_EditorClassIdentifier: 
+  modName: Bounce Shot 2X
+  modType: 0
+  playerStage: 0
+  weaponStage: 3
+  modForGun: {fileID: 11400000, guid: cebdbdd08d2a46b4da233d43a3e7a8e4, type: 2}
+  spread: 0.4
+  maxBounces: 2
+  bounceShotFamily:
+  - {fileID: 11400000, guid: cc00744bef74ed24fb0683ae5ca94231, type: 2}
+  - {fileID: 11400000, guid: 4ba383191e4d4c74390015865506bd3f, type: 2}
+  - {fileID: 11400000, guid: 57760c309b46ad94faf5e2d0adf35af7, type: 2}

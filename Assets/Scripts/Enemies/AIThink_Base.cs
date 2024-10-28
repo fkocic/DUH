@@ -8,7 +8,8 @@ public class AIThink_Base : MonoBehaviour
     public EnemyTemplate enemyType;
     [HideInInspector]public float health;
     public ParticleSystem bloodParticles;
-    Material mat;
+    public SkinnedMeshRenderer[] renderers;
+    public Animator anim;
 
     public LayerMask colideLayer;
     RaycastHit hit;
@@ -20,12 +21,13 @@ public class AIThink_Base : MonoBehaviour
 
     public void SetupValues()
     {
-        mat = GetComponent<MeshRenderer>().material;
         aiMove = GetComponent<AIMove_Base>();
         aiAttack = GetComponent<AIAttack_Base>();
-        aiMove.SetupValues(enemyType.moveSpeed, enemyType.turnSpeed);
 
         aud = GetComponent<AudioSource>();
+
+        aiMove.SetupValues(enemyType.moveSpeed, enemyType.turnSpeed, anim);
+        aiAttack.SetupValues(this, anim);
     }
 
     public void StartEnemy(Vector3 pos)
@@ -34,27 +36,24 @@ public class AIThink_Base : MonoBehaviour
         aiMove.SetPosition(pos);
 
         gameObject.SetActive(true);
-        StartCoroutine(Think());
+        InvokeRepeating(nameof(Think), enemyType.thinkFrequency, enemyType.thinkFrequency);
     }
 
-    private IEnumerator Think()
+    public virtual void Think()
     {
-        yield return new WaitForSeconds(enemyType.thinkFrequency);
-
         float dist = Vector3.Distance(transform.position, MainManager.Player.player.position);
         if (dist > enemyType.preferredDistanceToPlayer)
         {
-            Vector3 direction = MainManager.Player.player.position - transform.position;
-            aiMove.MoveTo(transform.position + direction.normalized * 5, 0);
+            aiMove.MoveTo(MainManager.Player.player.position, 0);
         }
         else
         {
-            if (Physics.Raycast(transform.position, MainManager.Player.player.position - transform.position, out hit, enemyType.preferredDistanceToPlayer, colideLayer, QueryTriggerInteraction.Ignore))
+            if (Physics.Raycast(aiAttack.gunMuzzle.position, MainManager.Player.player.position - aiAttack.gunMuzzle.position, out hit, enemyType.preferredDistanceToPlayer, colideLayer, QueryTriggerInteraction.Ignore))
             {
-                if(hit.collider.gameObject.CompareTag("Player"))
+                if (hit.collider.gameObject.CompareTag("Player"))
                 {
                     aiMove.Stop();
-                    aiMove.LookAt(MainManager.Player.player.position);
+                    aiMove.LookAt(MainManager.Player.player.position, enemyType.aimSpeed);
                     aiAttack.AimAt(MainManager.Player.player);
                 }
                 else
@@ -67,8 +66,6 @@ public class AIThink_Base : MonoBehaviour
                 aiMove.MoveTo(transform.position + Random.insideUnitSphere * 5f, 0);
             }
         }
-
-        StartCoroutine(Think());
     }
 
     public void Damage(float dmg, Vector3 impactPoint, Vector3 faceNormal, bool isDamagedByPlayer)
@@ -83,8 +80,12 @@ public class AIThink_Base : MonoBehaviour
 
     private void DamageEffect(Vector3 impactPoint, Vector3 faceNormal, bool isDamagedByPlayer)
     {
-        mat.SetColor("_Glow_Color", enemyType.glowEffectColor);
-        DOVirtual.Float(0, enemyType.glowEffectStrength, enemyType.glowEffectDuration, val => mat.SetFloat("_Glow_Strength", val)).SetLoops(2, LoopType.Yoyo);
+        foreach(SkinnedMeshRenderer mr in renderers)
+        {
+            Material mat = mr.material;
+            mat.SetColor("_Glow_Color", enemyType.glowEffectColor);
+            DOVirtual.Float(0, enemyType.glowEffectStrength, enemyType.glowEffectDuration, val => mat.SetFloat("_Glow_Strength", val)).SetLoops(2, LoopType.Yoyo);
+        }
 
         if(isDamagedByPlayer)
             MainManager.Effects.ShowHitMarker();
@@ -94,12 +95,20 @@ public class AIThink_Base : MonoBehaviour
 
         bloodParticles.transform.position = impactPoint;
         bloodParticles.Play();
+
+        anim?.SetTrigger("GotHit");
+    }
+
+    public virtual void PlaySound(AudioClip clip)
+    {
+        aud.PlayOneShot(clip);
     }
 
     private void OnDisable()
     {
-        StopAllCoroutines();
-        MainManager.Pooling.PlaceParticle(enemyParticleType.die, transform.position);
+        CancelInvoke();
+
+        MainManager.Pooling.PlaceParticle(particleType.enemyDie, transform.position, Vector3.one);
         MainManager.Pooling.ReturnEnemy(enemyType, transform);
     }
 }

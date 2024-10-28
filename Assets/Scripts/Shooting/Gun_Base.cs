@@ -108,7 +108,7 @@ public class Gun_Base : MonoBehaviour
 
     public void CheckAmmoState()
     {
-        if (bulletsInMagazine > 0)
+        if (bulletsInMagazine > 0 && gameObject.activeInHierarchy)
         {
             StartCoroutine(FireRate());
         }
@@ -125,7 +125,8 @@ public class Gun_Base : MonoBehaviour
 
         gunAnimator?.SetTrigger("Reload");
 
-        StartCoroutine(WaitReload());
+        if(gameObject.activeInHierarchy)
+            StartCoroutine(WaitReload());
     }
 
     public virtual void SetAnimationFloat(string state, float value)
@@ -135,7 +136,7 @@ public class Gun_Base : MonoBehaviour
 
     public virtual void UpdateAnimationReload()
     {
-        float newReloadSpeed = realReloadTime / (gun.reloadSpeed - 0.2f);
+        float newReloadSpeed = realReloadTime / gun.reloadSpeed;
         gunAnimator?.SetFloat("reloadSpeed", newReloadSpeed);
     }
 
@@ -143,8 +144,8 @@ public class Gun_Base : MonoBehaviour
     {
         isReloading = false;
         gunAnimator = GetComponentInChildren<Animator>();
+        //gunAnimator.keepAnimatorStateOnDisable = true;
         UpdateAnimationReload();
-        //gunAnimator?.Play("Idle", 0, 0f);
 
         if (bulletInChamber == false)
         {

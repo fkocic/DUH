@@ -16,7 +16,7 @@ MonoBehaviour:
   gunName: Pistol
   gunDescription: 
   isPlayerGun: 1
-  reloadSpeed: 1
+  reloadSpeed: 1.5
   rateOfFireRPM: 120
   spread: 0
   damage: 1
@@ -24,7 +24,7 @@ MonoBehaviour:
   size: 0.05
   duration: 2
   forceOverLifetime: {x: 0, y: 9, z: 0}
-  cameraShakeIntensity: 2
+  cameraShakeIntensity: 4
   cameraShakeDuration: 0.4
   bulletTrailColor:
     serializedVersion: 2

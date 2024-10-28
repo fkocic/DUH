@@ -8,6 +8,7 @@ public class MainManager : MonoBehaviour
     public static Manager_Player Player;
     public static Manager_Effects Effects;
     public static Manager_Shooting Shooting;
+    public static Manager_Audio Audio;
 
     private void Start()
     {
@@ -15,11 +16,13 @@ public class MainManager : MonoBehaviour
         Player = GetComponent<Manager_Player>();
         Effects = GetComponent<Manager_Effects>();
         Shooting = GetComponent<Manager_Shooting>();
+        Audio = GetComponent<Manager_Audio>();
 
         Pooling?.SetupValues();
         Player?.SetupValues();
         Effects?.SetupValues();
         Shooting?.SetupValues();
+        Audio?.SetupValues();
     }
 }
 

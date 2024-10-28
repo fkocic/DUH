@@ -4,12 +4,12 @@ using UnityEngine;
 public class EnemyTemplate : ScriptableObject
 {
     public string enemyName;
-    public GameObject enemyPrefab;
 
     [Header("Enemy Stats")]
     public float startHealth;
     public float moveSpeed;
     public float turnSpeed;
+    public float aimSpeed;
 
     [Header("AI")]
     public float thinkFrequency;

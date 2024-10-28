@@ -4,9 +4,16 @@ using UnityEngine;
 
 public class AIMove_Base : MonoBehaviour
 {
-    public virtual void SetupValues(float moveSpeed, float turnSpeed)
+    [HideInInspector]public float moveSpeed, turnSpeed, defaultTurnSpeed, defaultMoveSpeed;
+    [HideInInspector]public Animator anim;
+
+    public virtual void SetupValues(float moveSpeed, float turnSpeed, Animator baseAnimator)
     {
-        //
+        this.moveSpeed = moveSpeed;
+        this.turnSpeed = turnSpeed;
+        defaultTurnSpeed = turnSpeed;
+        defaultMoveSpeed = moveSpeed;
+        anim = baseAnimator;
     }
 
     public virtual void SetPosition(Vector3 position)
@@ -24,7 +31,12 @@ public class AIMove_Base : MonoBehaviour
         //
     }
 
-    public virtual void LookAt(Vector3 position)
+    public virtual void LookAt(Vector3 position, float aimSpeed)
+    {
+        //
+    }
+
+    public virtual void ChangeSpeedPercent(int percentChange, float duration)
     {
         //
     }

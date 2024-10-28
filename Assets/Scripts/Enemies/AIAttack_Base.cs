@@ -1,14 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Burst.CompilerServices;
 using UnityEngine;
 
 public class AIAttack_Base : MonoBehaviour
 {
     public GunTemplate gun;
     public Transform gunMuzzle;
+    public ParticleSystem particleMuzzle;
+    public float attackWindUpTime;
 
-    bool bulletInChamber = true;
+    [HideInInspector]public bool bulletInChamber;
+    [HideInInspector]public AIThink_Base scriptMain;
+    [HideInInspector] public Animator anim;
+
+    public virtual void SetupValues(AIThink_Base scr, Animator baseAnimator)
+    {
+        scriptMain = scr;
+        anim = baseAnimator;
+    }
 
     public virtual void AimAt(Transform target)
     {
@@ -23,18 +32,32 @@ public class AIAttack_Base : MonoBehaviour
         if (!bulletInChamber)
             return;
 
+        StartCoroutine(AttackWindUp());
+    }
+
+    private IEnumerator AttackWindUp()
+    {
         bulletInChamber = false;
+        anim?.SetTrigger("Shoot");
+
+        yield return new WaitForSeconds(attackWindUpTime);
 
         foreach (Mod_Base mod in gun.ModifiersShoot)
         {
             mod.ModifyWeaponShoot(gunMuzzle, transform.gameObject);
         }
 
-        //play audio
-        //play muzzle flash
-
+        PlayEffects();
         CheckProximity(gunMuzzle.position, gunMuzzle);
-        StartCoroutine(FireRate());
+
+        if (gameObject.activeInHierarchy)
+            StartCoroutine(FireRate());
+    }
+
+    public virtual void PlayEffects()
+    {
+        scriptMain.PlaySound(gun.soundShooting[Random.Range(0, gun.soundShooting.Length)]);
+        particleMuzzle.Play();
     }
 
     public virtual void CheckProximity(Vector3 spawnPos, Transform spawnSource)
@@ -74,5 +97,15 @@ public class AIAttack_Base : MonoBehaviour
     {
         yield return new WaitForSeconds(60f / gun.rateOfFireRPM);
         bulletInChamber = true;
+    }
+
+    private void OnEnable()
+    {
+        bulletInChamber = true;
+    }
+
+    private void OnDisable()
+    {
+        StopAllCoroutines();
     }
 }

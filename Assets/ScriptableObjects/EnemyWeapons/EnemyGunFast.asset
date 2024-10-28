@@ -20,10 +20,10 @@ MonoBehaviour:
   rateOfFireRPM: 120
   spread: 0.1
   damage: 1
-  speed: 20
+  speed: 30
   size: 0.1
   duration: 4
-  forceOverLifetime: {x: 0, y: 0, z: 0}
+  forceOverLifetime: {x: 0, y: 6, z: 0}
   cameraShakeIntensity: 0
   cameraShakeDuration: 0
   bulletTrailColor:
@@ -65,7 +65,8 @@ MonoBehaviour:
     m_Bits: 3221229313
   proximityRadius: 2
   bulletSpawnDistance: 1
-  soundShooting: []
+  soundShooting:
+  - {fileID: 8300000, guid: e6b2babb1e4ec91468d311897b2e37cd, type: 3}
   soundReload: {fileID: 0}
   soundEmpty: {fileID: 0}
   ModifiersPickup: []

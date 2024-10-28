@@ -24,7 +24,7 @@ MonoBehaviour:
   size: 0.05
   duration: 0.5
   forceOverLifetime: {x: 0, y: 0, z: 0}
-  cameraShakeIntensity: 10
+  cameraShakeIntensity: 20
   cameraShakeDuration: 0.5
   bulletTrailColor:
     serializedVersion: 2
@@ -66,7 +66,7 @@ MonoBehaviour:
   proximityRadius: 3
   bulletSpawnDistance: 1
   soundShooting:
-  - {fileID: 8300000, guid: 5a37f99ee2884ab4e9b47a21cf589a7f, type: 3}
+  - {fileID: 8300000, guid: a159ef1a4e27c7444858feb091358502, type: 3}
   soundReload: {fileID: 8300000, guid: e14556e7d26c9164e8ebfb7c161ab903, type: 3}
   soundEmpty: {fileID: 8300000, guid: 132037694544e9044b90a22c44be3a83, type: 3}
   ModifiersPickup: []
