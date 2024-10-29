@@ -5,15 +5,18 @@ using DG.Tweening;
 
 public class Manager_Audio : MonoBehaviour
 {
+    [Header("Music")]
     public AudioClip[] musicClips;
     public AudioSource musicAudioOne, musicAudioTwo;
     public bool isPlayingMusic;
-
     int currentMusicClip;
+
+    [Header("Effects")]
+    public AudioSource effectAudio;
 
     public void SetupValues()
     {
-        StartRandomMusic();
+        //StartRandomMusic();
     }
 
     public void StartRandomMusic()
@@ -69,5 +72,10 @@ public class Manager_Audio : MonoBehaviour
     private void StopMusicTwo()
     {
         musicAudioTwo.Stop();
+    }
+
+    public void PlayEffect(AudioClip clip)
+    {
+        effectAudio.PlayOneShot(clip);
     }
 }

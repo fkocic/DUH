@@ -19,4 +19,9 @@ public class EnemyTemplate : ScriptableObject
     public Color glowEffectColor;
     public float glowEffectDuration;
     public float glowEffectStrength;
+
+    [Header("Audio")]
+    public float vocalizeFrequency;
+    public AudioClip clipVocalize;
+    public AudioClip clipJump;
 }

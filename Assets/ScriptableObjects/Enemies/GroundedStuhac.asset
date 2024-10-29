@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Stuhac
   startHealth: 2
-  moveSpeed: 4
+  moveSpeed: 5
   turnSpeed: 2
   aimSpeed: 4
   thinkFrequency: 0.2
@@ -22,3 +22,6 @@ MonoBehaviour:
   glowEffectColor: {r: 1, g: 1, b: 1, a: 1}
   glowEffectDuration: 0.1
   glowEffectStrength: 3
+  vocalizeFrequency: 1
+  clipVocalize: {fileID: 0}
+  clipJump: {fileID: 0}

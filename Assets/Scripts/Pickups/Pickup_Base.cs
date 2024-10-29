@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Pickup_Base : MonoBehaviour
 {
+    public AudioClip pickupClip;
+
     private void Update()
     {
         transform.Rotate(0, 60 * Time.deltaTime, 0);
@@ -23,5 +25,6 @@ public class Pickup_Base : MonoBehaviour
     public virtual void DisplayPickup(string pickupName)
     {
         MainManager.Effects.UIDisplayPickup(pickupName);
+        MainManager.Audio?.PlayEffect(pickupClip);
     }
 }

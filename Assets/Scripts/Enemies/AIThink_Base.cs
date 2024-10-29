@@ -18,6 +18,7 @@ public class AIThink_Base : MonoBehaviour
     AIAttack_Base aiAttack;
 
     AudioSource aud;
+    bool isVocalizing;
 
     public void SetupValues()
     {
@@ -66,6 +67,18 @@ public class AIThink_Base : MonoBehaviour
                 aiMove.MoveTo(transform.position + Random.insideUnitSphere * 5f, 0);
             }
         }
+
+        if(!isVocalizing)
+            StartCoroutine(waitVocalize());
+    }
+
+    private IEnumerator waitVocalize()
+    {
+        isVocalizing = true;
+        yield return new WaitForSeconds(enemyType.vocalizeFrequency);
+
+        PlaySound(enemyType.clipVocalize);
+        isVocalizing = false;
     }
 
     public void Damage(float dmg, Vector3 impactPoint, Vector3 faceNormal, bool isDamagedByPlayer)
@@ -117,6 +130,7 @@ public class AIThink_Base : MonoBehaviour
     private void OnDisable()
     {
         CancelInvoke();
+        StopAllCoroutines();
 
         MainManager.Pooling.PlaceParticle(particleType.enemyDie, transform.position, Vector3.one);
         MainManager.Pooling.ReturnEnemy(enemyType, transform);
