@@ -15,11 +15,14 @@ public class Manager_Game : MonoBehaviour
     public int enemyNumber = 20;
     public bool isLevelOver;
     public bool allEnemiesSpawned;
+    public bool isPaused = false;
 
+    [SerializeField] GameObject pausePanel;
     [SerializeField] Image transitionPanel;
 
     private void Start()
     {
+        Time.timeScale = 1;
         StartCoroutine(StartInitialization());
     }
 
@@ -146,6 +149,30 @@ public class Manager_Game : MonoBehaviour
     {
         if (allEnemiesSpawned && MainManager.Pooling.CheckIfEnemyPoolEmpty())
             isLevelOver = true;
+    }
+
+    public void ReturnToMainMenu()
+    {
+        SceneManager.LoadScene("MenuScene");
+        Destroy(transform.parent.transform.parent.gameObject);
+    }
+
+    public void PauseGame()
+    {
+        Time.timeScale = 0;
+        isPaused = true;
+        pausePanel.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
+    public void ResumeGame()
+    {
+        Time.timeScale = 1;
+        isPaused = false;
+        pausePanel.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
 }
