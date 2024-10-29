@@ -85,6 +85,7 @@ public class Manager_Player : MonoBehaviour
         MainManager.Player.player.GetComponent<PlayerInput>().isDead = true;
         hud.SetActive(false);
         MainManager.Effects.ToggleCrosshair(0);
+        MainManager.Shooting.DeactivateAllGuns();
         gameOverPanel.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;

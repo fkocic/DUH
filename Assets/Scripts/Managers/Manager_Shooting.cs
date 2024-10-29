@@ -30,6 +30,8 @@ public class Manager_Shooting : MonoBehaviour
     [Header("Audio")]
     public AudioSource gunAudio;
 
+    bool isActive;
+
     public void SetupValues()
     {
         for (int i = 0; i < allGuns.Count; i++)
@@ -43,6 +45,7 @@ public class Manager_Shooting : MonoBehaviour
         scriptPlayer = MainManager.Player.player.GetComponent<PlayerMovement>();
 
         UIAmmo();
+        isActive = true;
     }
 
     public void ChangeAmmo(GunTemplate gun, int amount)
@@ -95,7 +98,7 @@ public class Manager_Shooting : MonoBehaviour
     #region GunSwitch
     public void SwitchGunDirect(int num)
     {
-        if (num > pickedGuns.Count - 1)
+        if (num > pickedGuns.Count - 1 || !isActive)
             return;
 
         DOTween.Kill("GunUp");
@@ -142,6 +145,15 @@ public class Manager_Shooting : MonoBehaviour
     {
         activeGun = pickedGuns[currentGun].GetComponent<Gun_Base>();
         UIAmmo();
+    }
+
+    public void DeactivateAllGuns()
+    {
+        isActive = false;
+        activeGun = null;
+
+        foreach (Transform t in pickedGuns)
+        { t.gameObject.SetActive(false); }
     }
     #endregion
 
