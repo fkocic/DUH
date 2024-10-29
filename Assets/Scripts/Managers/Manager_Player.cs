@@ -84,7 +84,7 @@ public class Manager_Player : MonoBehaviour
         isDead = true;
         MainManager.Player.player.GetComponent<PlayerInput>().isDead = true;
         hud.SetActive(false);
-        crosshair.SetActive(false);
+        MainManager.Effects.ToggleCrosshair(0);
         gameOverPanel.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;

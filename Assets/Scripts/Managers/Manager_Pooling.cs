@@ -30,6 +30,7 @@ public class Manager_Pooling : MonoBehaviour
     Dictionary<EnemyTemplate, List<Transform>> enemies = new Dictionary<EnemyTemplate, List<Transform>>();
     [SerializeField] int enemyPoolSize;
     [SerializeField] Transform enemyParent;
+    int maxEnemySize;
 
     [Header("Enemy Particle Effects")]
     [SerializeField] GameObject enemySpawnPrefab;
@@ -40,6 +41,11 @@ public class Manager_Pooling : MonoBehaviour
     [SerializeField] int particlePoolSize;
     [SerializeField] Transform particleParent;
     int particleSpawnCounter, particleDieCounter, particleDropCounter, explosionCounter;
+
+    private void Start()
+    {
+        maxEnemySize = allEnemies.Count * enemyPoolSize;
+    }
 
     public void SetupValues()
     {
@@ -227,6 +233,20 @@ public class Manager_Pooling : MonoBehaviour
         {
             enemies[enem].Add(enemyObject);
         }
+    }
+
+    public bool CheckIfEnemyPoolEmpty()
+    {
+        var enemiesInPool = 0;
+        foreach(EnemyTemplate enemy in allEnemies)
+        {
+            enemiesInPool += enemies[enemy].Count;
+        }
+
+        if (enemiesInPool < maxEnemySize)
+            return false;
+
+        return true;
     }
 
     #endregion

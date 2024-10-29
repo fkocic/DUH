@@ -7,6 +7,9 @@ public class Controller_Shooting : MonoBehaviour
 {
     private void Update()
     {
+        if (MainManager.Player.isDead)
+            return;
+
         if (Input.GetButton("Fire1"))
         {
             MainManager.Shooting.activeGun?.Shoot(transform);

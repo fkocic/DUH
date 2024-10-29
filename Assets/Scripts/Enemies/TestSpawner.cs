@@ -11,6 +11,7 @@ public class TestSpawner : MonoBehaviour
     public int maxEnemyNumber = 20;
     public int enemyNumber;
 
+
     private void Start()
     {       
         enemyNumber = 0;
@@ -36,10 +37,10 @@ public class TestSpawner : MonoBehaviour
             StartCoroutine(waitInterval());
             enemyNumber++;
         }
-        
 
-        if (enemyNumber > maxEnemyNumber)
-            MainManager.Game.isLevelOver = true;
+
+        if (enemyNumber == maxEnemyNumber)
+            MainManager.Game.allEnemiesSpawned = true;
     }
 
     private IEnumerator SpawnEnemy()
