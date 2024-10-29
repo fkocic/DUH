@@ -1,18 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-
-    private void Start()
-    {
-        Time.timeScale = 0;
-    }
-
     public void StartGame()
     {
-        Time.timeScale = 1;
-        MainManager.Game.GenerateNextLevel();
+        int rnd = Random.Range(1, 11);
+        if (rnd == 10)
+            SceneManager.LoadScene("Level" + rnd.ToString());
+        else
+            SceneManager.LoadScene("Level0" + rnd.ToString());
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 }

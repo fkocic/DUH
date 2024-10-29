@@ -32,7 +32,7 @@ public class CameraMovement : MonoBehaviour
 
     void Update()
     {
-        if (MainManager.Player.isDead)
+        if (MainManager.Player.isDead || MainManager.Game.isPaused)
             return;
 
         Cursor.visible = false;
