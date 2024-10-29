@@ -1519,6 +1519,26 @@ PrefabInstance:
       propertyPath: scriptCamera
       value: 
       objectReference: {fileID: 1542213218222621435}
+    - target: {fileID: 8129565395490330206, guid: 2989fed040fc00b468dae37f4757b7ba,
+        type: 3}
+      propertyPath: grenadeSmokes.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129565395490330206, guid: 2989fed040fc00b468dae37f4757b7ba,
+        type: 3}
+      propertyPath: grenadeSmokes.Array.data[0]
+      value: 
+      objectReference: {fileID: 6876324223384687376}
+    - target: {fileID: 8129565395490330206, guid: 2989fed040fc00b468dae37f4757b7ba,
+        type: 3}
+      propertyPath: grenadeSmokes.Array.data[1]
+      value: 
+      objectReference: {fileID: 3868947122296133648}
+    - target: {fileID: 8129565395490330206, guid: 2989fed040fc00b468dae37f4757b7ba,
+        type: 3}
+      propertyPath: grenadeSmokes.Array.data[2]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8214672990833507964, guid: 2989fed040fc00b468dae37f4757b7ba,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -1554,7 +1574,11 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 8452183401030855738}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7336730173448564933, guid: 2989fed040fc00b468dae37f4757b7ba,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2795282064034761092}
   m_SourcePrefab: {fileID: 100100000, guid: 2989fed040fc00b468dae37f4757b7ba, type: 3}
 --- !u!4 &234689542965069707 stripped
 Transform:
@@ -1586,6 +1610,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5239532596055356939}
   m_PrefabAsset: {fileID: 0}
+--- !u!225 &2795282064034761092
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3271797072604366542}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &6869582910173564957 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1721261677737469462, guid: 2989fed040fc00b468dae37f4757b7ba,
@@ -1693,6 +1729,12 @@ Transform:
 --- !u!198 &3868947122296133648 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 8016591427616665047, guid: 597b576dccd7bca42b423125e5d65595,
+    type: 3}
+  m_PrefabInstance: {fileID: 6553271299705370055}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &6876324223384687376 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 404332156927698647, guid: 597b576dccd7bca42b423125e5d65595,
     type: 3}
   m_PrefabInstance: {fileID: 6553271299705370055}
   m_PrefabAsset: {fileID: 0}

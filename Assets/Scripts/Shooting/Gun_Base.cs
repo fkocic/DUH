@@ -29,6 +29,8 @@ public class Gun_Base : MonoBehaviour
     private IEnumerator WaitReload()
     {
         isReloading = true;
+        MainManager.Effects.ToggleCrosshair(0);
+
         yield return new WaitForSeconds(gun.reloadSpeed);
 
         int bulletsNeeded = gun.magazineSize - bulletsInMagazine;
@@ -39,6 +41,7 @@ public class Gun_Base : MonoBehaviour
         bulletInChamber = true;
 
         isReloading = false;
+        MainManager.Effects.ToggleCrosshair(1);
     }
 
     public virtual void Shoot(Transform spawnPos)

@@ -16,6 +16,8 @@ public class Manager_Effects : MonoBehaviour
     Quaternion pickpGroupRotation;
     [SerializeField] TMP_Text pickupText;
 
+    [SerializeField] ParticleSystem[] grenadeSmokes;
+
     public void SetupValues()
     {
         pickpGroupRotation = pickupGroup.GetComponent<RectTransform>().localRotation;
@@ -32,6 +34,11 @@ public class Manager_Effects : MonoBehaviour
 
         if(!hitmarkerAudio.isPlaying)
             hitmarkerAudio.Play();
+    }
+
+    public void ToggleCrosshair(float alpha)
+    {
+        scriptCrosshair.ToggleCrosshair(alpha);
     }
 
     public void CameraShake(float intensity, float duration)
@@ -83,5 +90,10 @@ public class Manager_Effects : MonoBehaviour
             yield return new WaitForSeconds(1);
             pickupGroup.DOFade(0, pickupFadeTime).SetId("Fade");
         }
+    }
+
+    public void PlayParticleSmoke(int num)
+    {
+        grenadeSmokes[num].Play();
     }
 }

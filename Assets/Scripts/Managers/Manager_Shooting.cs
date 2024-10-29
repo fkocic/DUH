@@ -29,7 +29,6 @@ public class Manager_Shooting : MonoBehaviour
 
     [Header("Audio")]
     public AudioSource gunAudio;
-    public ParticleSystem particleSteam;
 
     public void SetupValues()
     {
@@ -159,17 +158,12 @@ public class Manager_Shooting : MonoBehaviour
 
     #endregion
 
-    #region Effects
+    #region Audio
 
     public void PlayAudio(AudioClip clip)
     {
         gunAudio.pitch = Random.Range(0.97f, 1.03f);
         gunAudio.PlayOneShot(clip);
-    }
-
-    public void PlayParticle()
-    {
-        particleSteam.Play();
     }
 
     #endregion

@@ -17,6 +17,8 @@ public class Controller_Crosshair : MonoBehaviour
     Color hitMarkerStart;
     [SerializeField] float markerFadeTime;
 
+    CanvasGroup crosshairGroup;
+
     private void Start()
     {
         startUp = up.rectTransform.anchoredPosition.y;
@@ -28,6 +30,8 @@ public class Controller_Crosshair : MonoBehaviour
         Color invCol = hitMarkerStart;
         invCol.a = 0f;
         hitMarker.color = invCol;
+
+        crosshairGroup = GetComponent<CanvasGroup>();
     }
 
     private void Update()
@@ -75,5 +79,10 @@ public class Controller_Crosshair : MonoBehaviour
     {
         yield return new WaitForSeconds(lingerTime);
         hitMarker.DOFade(0f, markerFadeTime).SetId("Marker");
+    }
+
+    public void ToggleCrosshair(float alpha)
+    {
+        crosshairGroup.alpha = alpha;
     }
 }

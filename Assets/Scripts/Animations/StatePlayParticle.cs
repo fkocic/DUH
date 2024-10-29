@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class StatePlayParticle : StateMachineBehaviour
 {
+    public int particleNum;
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        MainManager.Shooting.PlayParticle();
+        MainManager.Effects.PlayParticleSmoke(particleNum);
     }
 }
