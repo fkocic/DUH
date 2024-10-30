@@ -38,10 +38,21 @@ public class PlayerController : MonoBehaviour
     WallrunMovement wallrun;
     SurfaceSwimmingMovement swimming;
 
+    [Header("Player Clips")]
+    public AudioClip playerIdle;
+    public AudioClip playerWalk;
+    public AudioClip playerRun;
+    public AudioClip playerRunAlt;
+    public AudioClip playerWallrun;
+    private AudioClip currentClip;
+
+    public bool isInAir;
+
     public void ChangeStatus(Status s)
     {
         if (status == s) return;
         status = s;
+        PlayAudio(s);
         if (onStatusChange != null)
             onStatusChange.Invoke(status, null);
     }
@@ -49,6 +60,7 @@ public class PlayerController : MonoBehaviour
     {
         if (status == s) return;
         status = s;
+        PlayAudio(s);
         if (onStatusChange != null)
             onStatusChange.Invoke(status, call);
     }
@@ -306,6 +318,53 @@ public class PlayerController : MonoBehaviour
 
         return (Physics.CapsuleCastAll(top, bottom, 0.25f, transform.right * dir, 0.05f, layer).Length >= 1);
     }
+
+    public void PlayAudio(Status s)
+    {
+        if (currentClip != null)
+        {
+            MainManager.Audio.playerAudio.Stop();
+        }
+
+        if (s == Status.walking)
+        {
+            MainManager.Audio.PlayPlayerSound(playerWalk);
+            currentClip = playerWalk;
+        }
+
+        if (s == Status.idle)
+        {
+            MainManager.Audio.PlayPlayerSound(playerIdle);
+            currentClip = playerIdle;
+        }
+
+        if (s == Status.sprinting)
+        {
+            var rnd = UnityEngine.Random.Range(0, 2);
+
+            if (rnd == 0)
+            {
+                MainManager.Audio.PlayPlayerSound(playerRun);
+            }
+            else
+            {
+                MainManager.Audio.PlayPlayerSound(playerRunAlt);
+            }
+            
+            currentClip = playerRun;
+        }
+
+        if (s == Status.wallRunning)
+        {
+            MainManager.Audio.PlayPlayerSound(playerWallrun);
+            currentClip = playerWallrun;
+        }
+    }
+
+    public void ResumeAudio()
+    {
+        PlayAudio(status);
+    }
 }
 
 public class PlayerInfo
@@ -346,4 +405,6 @@ public class IKData
         data.eulerAngles = handEulerAngles;
         return data;
     }
+
+  
 }

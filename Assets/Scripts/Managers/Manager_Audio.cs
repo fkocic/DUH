@@ -14,6 +14,9 @@ public class Manager_Audio : MonoBehaviour
     [Header("Effects")]
     public AudioSource effectAudio;
 
+    [Header("Player Sounds")]
+    public AudioSource playerAudio;
+
     public void SetupValues()
     {
         //StartRandomMusic();
@@ -77,5 +80,11 @@ public class Manager_Audio : MonoBehaviour
     public void PlayEffect(AudioClip clip)
     {
         effectAudio.PlayOneShot(clip);
+    }
+
+    public void PlayPlayerSound(AudioClip clip)
+    {
+        playerAudio.clip = clip;
+        playerAudio.Play();
     }
 }

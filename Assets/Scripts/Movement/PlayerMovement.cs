@@ -38,15 +38,25 @@ public class PlayerMovement : InterpolatedTransform
 
     public UnityEvent speedChange = new UnityEvent();
 
+    [Header("Jump audio")]
+    public AudioClip playerjump;
+    public AudioClip playerLand;
+    public bool hasJumped;
+    public float airTimer = 0;
+
+    private PlayerController playerController;
+
     public override void OnEnable()
     {
         base.OnEnable();
         controller = GetComponent<CharacterController>();
+        playerController = GetComponent<PlayerController>();
     }
 
     private void Awake()
     {
-        controller = GetComponent<CharacterController>();       
+        controller = GetComponent<CharacterController>();
+        playerController = GetComponent<PlayerController>();
     }
 
     public void AddToReset(UnityAction call)
@@ -56,12 +66,6 @@ public class PlayerMovement : InterpolatedTransform
 
     public void SetMovementValues()
     {
-        /*
-        walkSpeed *= speedModifier;
-        runSpeed *= speedModifier;
-        crouchSpeed *= speedModifier;
-        jumpSpeed *= speedModifier;
-        */
         walkSpeed *= MainManager.Player.speedModifier;
         runSpeed *= MainManager.Player.speedModifier;
         crouchSpeed *= MainManager.Player.speedModifier;
@@ -113,6 +117,21 @@ public class PlayerMovement : InterpolatedTransform
                 moveDirection.y -= gravity * Time.deltaTime;
             grounded = (controller.Move(moveDirection * Time.deltaTime) & CollisionFlags.Below) != 0;
         }
+
+        if (grounded)
+        {
+            if (airTimer < 0 && hasJumped)
+            {
+                MainManager.Audio.PlayEffect(playerLand);
+                GetComponent<PlayerController>().ResumeAudio();
+                hasJumped = false;
+            }
+            airTimer -= Time.deltaTime;
+        }
+        else if (playerController.status != Status.wallRunning)
+        {
+            MainManager.Audio?.playerAudio.Stop();
+        }
     }
 
     public override void LateFixedUpdate()
@@ -131,6 +150,8 @@ public class PlayerMovement : InterpolatedTransform
         
         if (grounded)
         {
+            
+
             moveDirection = new Vector3(input.x, -antiBumpFactor, input.y);
             moveDirection = transform.TransformDirection(moveDirection) * speed;
             jumpCounter = jumpTimes;
@@ -200,6 +221,11 @@ public class PlayerMovement : InterpolatedTransform
         jump = dir * mult;
         if (jumpCounter > 0)
             jumpCounter--;
+
+        MainManager.Audio.playerAudio.Stop();
+        MainManager.Audio.PlayEffect(playerjump);
+        hasJumped = true;
+        airTimer = 0.1f;
     }
 
     public void AerialJump(Vector3 dir, float mult)
@@ -215,12 +241,17 @@ public class PlayerMovement : InterpolatedTransform
             jumpCounter--;
 
         UpdateJump();
+        MainManager.Audio.playerAudio.Stop();
+        MainManager.Audio.PlayEffect(playerjump);
+        hasJumped = true;
+        airTimer = 0.1f;
     }
 
     public void UpdateJump()
     {
         if (jump != Vector3.zero)
         {
+            MainManager.Audio.playerAudio.Stop();
             Vector3 dir = (jump * jumpSpeed);
             if (dir.x != 0) moveDirection.x = dir.x;
             if (dir.y != 0) moveDirection.y = dir.y;
