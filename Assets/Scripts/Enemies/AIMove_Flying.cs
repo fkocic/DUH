@@ -15,11 +15,11 @@ public class AIMove_Flying : AIMove_Base
     Vector3 addedRandomness, correctedDestination;
     Quaternion finalRotation;
 
-    public override void SetupValues(float moveSpeed, float turnSpeed, Animator baseAnimator)
+    public override void SetupValues(float moveSpeed, float turnSpeed, Animator baseAnimator, AIThink_Base scr)
     {
         rb = GetComponent<Rigidbody>();
         finalRotation = Quaternion.identity;
-        base.SetupValues(moveSpeed, turnSpeed, baseAnimator);
+        base.SetupValues(moveSpeed, turnSpeed, baseAnimator, scr);
     }
 
     public override void SetPosition(Vector3 position)

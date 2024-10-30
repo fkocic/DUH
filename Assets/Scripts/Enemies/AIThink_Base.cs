@@ -27,7 +27,7 @@ public class AIThink_Base : MonoBehaviour
 
         aud = GetComponent<AudioSource>();
 
-        aiMove.SetupValues(enemyType.moveSpeed, enemyType.turnSpeed, anim);
+        aiMove.SetupValues(enemyType.moveSpeed, enemyType.turnSpeed, anim, this);
         aiAttack.SetupValues(this, anim);
     }
 
@@ -69,16 +69,7 @@ public class AIThink_Base : MonoBehaviour
         }
 
         if(!isVocalizing)
-            StartCoroutine(waitVocalize());
-    }
-
-    private IEnumerator waitVocalize()
-    {
-        isVocalizing = true;
-        yield return new WaitForSeconds(enemyType.vocalizeFrequency);
-
-        PlaySound(enemyType.clipVocalize);
-        isVocalizing = false;
+            StartCoroutine(soundVocalize());
     }
 
     public void Damage(float dmg, Vector3 impactPoint, Vector3 faceNormal, bool isDamagedByPlayer)
@@ -125,6 +116,20 @@ public class AIThink_Base : MonoBehaviour
     public virtual void PlaySound(AudioClip clip)
     {
         aud.PlayOneShot(clip);
+    }
+
+    private IEnumerator soundVocalize()
+    {
+        isVocalizing = true;
+        yield return new WaitForSeconds(enemyType.vocalizeFrequency);
+
+        PlaySound(enemyType.clipVocalize);
+        isVocalizing = false;
+    }
+
+    public virtual void soundJump()
+    {
+        PlaySound(enemyType.clipJump);
     }
 
     private void OnDisable()

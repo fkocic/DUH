@@ -123,7 +123,7 @@ public class Gun_Base : MonoBehaviour
 
     public virtual void Reload()
     {
-        if (MainManager.Shooting.ammo[gun] == 0 || isReloading || bulletsInMagazine == gun.magazineSize)
+        if (MainManager.Shooting.ammo[gun] == 0 || isReloading || bulletsInMagazine >= gun.magazineSize)
             return;
 
         gunAnimator?.SetTrigger("Reload");
