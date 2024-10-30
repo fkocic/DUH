@@ -15,15 +15,17 @@ public class Controller_DamageIndicator : MonoBehaviour
 
     private void Start()
     {
+        /*
         for(int i = 0; i < startRots.Length; i++) 
         {
             startRots[i] = groupDamageDirection[i].GetComponent<RectTransform>().rotation;
         }
+        */
     }
 
     public void ShowIndicator(int dir)
     {
-        ShowGroupDirection(dir);
+        //ShowGroupDirection(dir);
         ShowGroupDamage();
     }
 
