@@ -26,7 +26,7 @@ public class AIMove_NavMesh : AIMove_Base
     public override void SetPosition(Vector3 position)
     {
         NavMeshHit correctedPos;
-        Vector3 addedRandomness = Random.insideUnitSphere * 2;
+        Vector3 addedRandomness = Random.insideUnitSphere;
         addedRandomness.y = Mathf.Abs(addedRandomness.y);
         position += addedRandomness;
 
@@ -48,9 +48,19 @@ public class AIMove_NavMesh : AIMove_Base
                 LookAt(agent.steeringTarget, defaultTurnSpeed);
                 return;
             }
+            else if(NavMesh.SamplePosition(destination + Random.insideUnitSphere*6f, out correctedPos, 6f, NavMesh.AllAreas))
+            {
+                NavMesh.CalculatePath(transform.position, correctedPos.position, NavMesh.AllAreas, newPath);
+                if (newPath.status == NavMeshPathStatus.PathComplete)
+                {
+                    agent.isStopped = false;
+                    agent.SetPath(newPath);
+                    LookAt(agent.steeringTarget, defaultTurnSpeed);
+                    return;
+                }
+            }
         }
 
-        //agent.isStopped = true;
         LookAt(correctedPos.position, defaultTurnSpeed);
     }
 

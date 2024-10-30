@@ -68,7 +68,7 @@ public class AIThink_Base : MonoBehaviour
             }
         }
 
-        if(!isVocalizing)
+        if(!isVocalizing && gameObject.activeInHierarchy)
             StartCoroutine(soundVocalize());
     }
 

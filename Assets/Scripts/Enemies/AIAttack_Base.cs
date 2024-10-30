@@ -32,7 +32,8 @@ public class AIAttack_Base : MonoBehaviour
         if (!bulletInChamber)
             return;
 
-        StartCoroutine(AttackWindUp());
+        if (gameObject.activeInHierarchy)
+            StartCoroutine(AttackWindUp());
     }
 
     private IEnumerator AttackWindUp()

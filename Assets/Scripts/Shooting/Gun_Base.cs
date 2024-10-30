@@ -146,6 +146,8 @@ public class Gun_Base : MonoBehaviour
     private void OnEnable()
     {
         isReloading = false;
+        MainManager.Effects.ToggleCrosshair(1);
+
         gunAnimator = GetComponentInChildren<Animator>();
         gunAnimator.keepAnimatorStateOnDisable = true;
         UpdateAnimationReload();
