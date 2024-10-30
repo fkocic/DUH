@@ -16,6 +16,7 @@ public class Manager_Game : MonoBehaviour
     public bool isLevelOver;
     public bool allEnemiesSpawned;
     public bool isPaused = false;
+    public ModSpawner modSpawner;
 
     [SerializeField] GameObject pausePanel;
     [SerializeField] Image transitionPanel;
@@ -24,6 +25,7 @@ public class Manager_Game : MonoBehaviour
     {
         Time.timeScale = 1;
         StartCoroutine(StartInitialization());
+        StartCoroutine(SetModSpawner());
     }
 
     private void FixedUpdate()
@@ -53,6 +55,7 @@ public class Manager_Game : MonoBehaviour
     {
         FadeOut();
         StartCoroutine(DelayedGeneration());
+        StartCoroutine(SetModSpawner());
     }
 
     private IEnumerator DelayedGeneration()
@@ -91,6 +94,7 @@ public class Manager_Game : MonoBehaviour
     public void SetLevelOver()
     {
         isLevelOver = true;
+        modSpawner.SpawnMod();
     }
 
     public void RestartGame()
@@ -148,7 +152,7 @@ public class Manager_Game : MonoBehaviour
     public void CheckIfLevelOver()
     {
         if (allEnemiesSpawned && MainManager.Pooling.CheckIfEnemyPoolEmpty())
-            isLevelOver = true;
+            SetLevelOver();
     }
 
     public void ReturnToMainMenu()
@@ -164,6 +168,7 @@ public class Manager_Game : MonoBehaviour
         pausePanel.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        MainManager.Player.player.GetComponentInChildren<CameraMovement>().isPlayerLocked = true;
     }
 
     public void ResumeGame()
@@ -173,6 +178,13 @@ public class Manager_Game : MonoBehaviour
         pausePanel.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        MainManager.Player.player.GetComponentInChildren<CameraMovement>().isPlayerLocked = false;
     }
 
+    private IEnumerator SetModSpawner()
+    {
+        yield return new WaitForSeconds(5);
+        modSpawner = null;
+        modSpawner = GameObject.FindGameObjectWithTag("ModSpawner").GetComponent<ModSpawner>();
+    }
 }

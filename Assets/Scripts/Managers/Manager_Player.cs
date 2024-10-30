@@ -82,7 +82,9 @@ public class Manager_Player : MonoBehaviour
     public void Die()
     {
         isDead = true;
+        MainManager.Player.player.GetComponentInChildren<Controller_Shooting>().LockPlayer();
         MainManager.Player.player.GetComponent<PlayerInput>().isDead = true;
+        MainManager.Player.player.GetComponentInChildren<CameraMovement>().isPlayerLocked = true;
         hud.SetActive(false);
         MainManager.Effects.ToggleCrosshair(0);
         MainManager.Shooting.DeactivateAllGuns();

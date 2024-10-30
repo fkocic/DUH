@@ -5,9 +5,11 @@ using DG.Tweening;
 
 public class Controller_Shooting : MonoBehaviour
 {
+    private bool isPlayerLocked;
+
     private void Update()
     {
-        if (MainManager.Player.isDead)
+        if (isPlayerLocked)
             return;
 
         if (Input.GetButton("Fire1"))
@@ -41,5 +43,10 @@ public class Controller_Shooting : MonoBehaviour
         {
             MainManager.Game.PauseGame();
         }
+    }
+
+    public void LockPlayer()
+    {
+        isPlayerLocked = true;
     }
 }

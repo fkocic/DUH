@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7176717590458494514}
   m_Layer: 0
   m_Name: ModDrop
-  m_TagString: Untagged
+  m_TagString: ModSpawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -20,6 +20,9 @@ public class CameraMovement : MonoBehaviour
     [SerializeField]
     private Vector2 targetCharacterDirection;
 
+    public bool isGamePaused;
+    public bool isPlayerLocked;
+
     void Start()
     {
         // Set target direction to the camera's initial orientation.
@@ -32,7 +35,7 @@ public class CameraMovement : MonoBehaviour
 
     void Update()
     {
-        if (MainManager.Player.isDead || MainManager.Game.isPaused)
+        if (isPlayerLocked || isGamePaused)
             return;
 
         Cursor.visible = false;
