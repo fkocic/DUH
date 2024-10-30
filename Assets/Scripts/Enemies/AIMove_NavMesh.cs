@@ -38,7 +38,7 @@ public class AIMove_NavMesh : AIMove_Base
     {
         NavMeshHit correctedPos;
 
-        if (NavMesh.SamplePosition(destination, out correctedPos, 1.5f, NavMesh.AllAreas))
+        if (NavMesh.SamplePosition(destination, out correctedPos, 6f, NavMesh.AllAreas))
         {
             NavMesh.CalculatePath(transform.position, correctedPos.position, NavMesh.AllAreas, newPath);
             if (newPath.status == NavMeshPathStatus.PathComplete)
