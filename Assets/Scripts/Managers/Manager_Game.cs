@@ -94,7 +94,7 @@ public class Manager_Game : MonoBehaviour
     public void SetLevelOver()
     {
         isLevelOver = true;
-        modSpawner.SpawnMod();
+        modSpawner?.SpawnMod();
     }
 
     public void RestartGame()
