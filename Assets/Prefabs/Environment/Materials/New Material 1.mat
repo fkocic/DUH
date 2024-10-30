@@ -23,7 +23,7 @@ Material:
   m_Name: New Material 1
   m_Shader: {fileID: -6465566751694194690, guid: db0ae0bdbe2490545a0ab64278633f7f,
     type: 3}
-  m_Parent: {fileID: 2100000, guid: f813d2e029384d04780887c17dc3b151, type: 2}
+  m_Parent: {fileID: 2100000, guid: d54e2c8c4b026c74caab345cf644f951, type: 2}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -36,14 +36,9 @@ Material:
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: aa6bb25c8eebe724485bddb2f278dc30, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
+    m_TexEnvs: []
     m_Ints: []
-    m_Floats: []
-    m_Colors:
-    - _DiffuseColor: {r: 0.8207547, g: 0.7549395, b: 0.7549395, a: 1}
-    - _Diffuse_Tiling: {r: -1.2, g: 1, b: 0, a: 0}
+    m_Floats:
+    - _QueueControl: 0
+    m_Colors: []
   m_BuildTextureStacks: []

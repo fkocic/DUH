@@ -6,6 +6,7 @@ TagManager:
   tags:
   - FxTemporaire
   - ModSpawner
+  - LevelExit
   layers:
   - Default
   - TransparentFX

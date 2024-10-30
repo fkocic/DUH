@@ -5,17 +5,29 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    [SerializeField] AudioSource menuMusic;
+
+    private void Start()
+    {
+        //PlayMusic();
+    }
+
     public void StartGame()
     {
-        int rnd = Random.Range(1, 11);
+        int rnd = Random.Range(1, 10);
         if (rnd == 10)
-            SceneManager.LoadScene("Level" + rnd.ToString());
+            SceneManager.LoadScene("FinalLevel" + rnd.ToString());
         else
-            SceneManager.LoadScene("Level0" + rnd.ToString());
+            SceneManager.LoadScene("FinalLevel0" + rnd.ToString());
     }
 
     public void ExitGame()
     {
         Application.Quit();
+    }
+
+    public void PlayMusic()
+    {
+        menuMusic.Play();
     }
 }

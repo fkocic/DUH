@@ -19,7 +19,7 @@ public class Manager_Audio : MonoBehaviour
 
     public void SetupValues()
     {
-        //StartRandomMusic();
+        StartRandomMusic();
     }
 
     public void StartRandomMusic()

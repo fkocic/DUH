@@ -17,15 +17,18 @@ public class Manager_Game : MonoBehaviour
     public bool allEnemiesSpawned;
     public bool isPaused = false;
     public ModSpawner modSpawner;
+    public LevelExit levelExit;
 
     [SerializeField] GameObject pausePanel;
     [SerializeField] Image transitionPanel;
+    
 
     private void Start()
     {
         Time.timeScale = 1;
         StartCoroutine(StartInitialization());
         StartCoroutine(SetModSpawner());
+        StartCoroutine(SetLevelExit());
     }
 
     private void FixedUpdate()
@@ -56,6 +59,7 @@ public class Manager_Game : MonoBehaviour
         FadeOut();
         StartCoroutine(DelayedGeneration());
         StartCoroutine(SetModSpawner());
+        StartCoroutine(SetLevelExit());
     }
 
     private IEnumerator DelayedGeneration()
@@ -70,16 +74,16 @@ public class Manager_Game : MonoBehaviour
         levelsPassed++;
         GetRandomLevel();
         if (currentLevel == 10)
-            SceneManager.LoadScene("Level" + currentLevel.ToString());
+            SceneManager.LoadScene("FinalLevel" + currentLevel.ToString());
         else
-            SceneManager.LoadScene("Level0" + currentLevel.ToString());
+            SceneManager.LoadScene("FinalLevel0" + currentLevel.ToString());
 
         InitializeLevel();
     }
     
     private void GetRandomLevel()
     {
-        int rnd = Random.Range(1, 11);
+        int rnd = Random.Range(1, 10);
 
         if (rnd == currentLevel)
         {
@@ -94,8 +98,12 @@ public class Manager_Game : MonoBehaviour
     public void SetLevelOver()
     {
         isLevelOver = true;
+
         if(modSpawner != null)
             modSpawner?.SpawnMod();
+
+        if (levelExit != null)
+            levelExit?.OpenDoors();
     }
 
     public void RestartGame()
@@ -187,5 +195,12 @@ public class Manager_Game : MonoBehaviour
         yield return new WaitForSeconds(5);
         modSpawner = null;
         modSpawner = GameObject.FindGameObjectWithTag("ModSpawner").GetComponent<ModSpawner>();
+    }
+
+    private IEnumerator SetLevelExit()
+    {
+        yield return new WaitForSeconds(5);
+        levelExit = null;
+        levelExit = GameObject.FindGameObjectWithTag("LevelExit").GetComponent<LevelExit>();
     }
 }

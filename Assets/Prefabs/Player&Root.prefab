@@ -1677,6 +1677,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 541856700087970689, guid: 2989fed040fc00b468dae37f4757b7ba,
         type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 541856700087970689, guid: 2989fed040fc00b468dae37f4757b7ba,
+        type: 3}
       propertyPath: m_fontAsset
       value: 
       objectReference: {fileID: 11400000, guid: f3904ab2f1bcbfe41b960c818fc10ec9,
@@ -1788,6 +1793,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3210379440284284055, guid: 2989fed040fc00b468dae37f4757b7ba,
+        type: 3}
+      propertyPath: m_text
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3210379440284284055, guid: 2989fed040fc00b468dae37f4757b7ba,
         type: 3}
@@ -2816,7 +2826,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99a39b1918d11ac4a9dd55084f2b2bc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicClips: []
+  musicClips:
+  - {fileID: 8300000, guid: 4f4bddcbfcf38404a831fea58ed79e4c, type: 3}
+  - {fileID: 8300000, guid: 898f6978d2e5bc149b848d5e5d183155, type: 3}
+  - {fileID: 8300000, guid: c467600cf28f92645b1068a6b907faa5, type: 3}
+  - {fileID: 8300000, guid: d848643e1ff6e5d46814697ac96d562e, type: 3}
+  - {fileID: 8300000, guid: 3d96f7c3cc7dbdd4881c858f0049bb04, type: 3}
+  - {fileID: 8300000, guid: 093422f4edb91a741826b08792843ff3, type: 3}
+  - {fileID: 8300000, guid: 6d400c0bc40d2184e9fe2f9b9951f4a4, type: 3}
+  - {fileID: 8300000, guid: 72e1b541e3704994381133f2a77d33a6, type: 3}
+  - {fileID: 8300000, guid: 43d3d29dd1d01b3448bd903db3fb183f, type: 3}
+  - {fileID: 8300000, guid: 54a09ef3e1f5ca149aebf3a4b5a157e3, type: 3}
   musicAudioOne: {fileID: 5121968719760642717}
   musicAudioTwo: {fileID: 2959168747751868504}
   isPlayingMusic: 0

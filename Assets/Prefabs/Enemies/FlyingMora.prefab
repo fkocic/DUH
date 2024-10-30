@@ -217,17 +217,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: d356684a0a951834798db5856475051f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.825917
+      value: 4.849254
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d356684a0a951834798db5856475051f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.463
+      value: 3.6249995
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d356684a0a951834798db5856475051f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.446603
+      value: -11.758081
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d356684a0a951834798db5856475051f,
         type: 3}
@@ -583,7 +583,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: e26016a31f4795949849360d36050ee4, type: 2}
+      objectReference: {fileID: 2100000, guid: a7653690f96f3cb42a769ae44d6993ae, type: 2}
     - target: {fileID: 1315213911798840538, guid: d356684a0a951834798db5856475051f,
         type: 3}
       propertyPath: m_Layer
@@ -1166,6 +1166,7 @@ MonoBehaviour:
   defaultTurnSpeed: 0
   defaultMoveSpeed: 0
   anim: {fileID: 0}
+  scriptMain: {fileID: 0}
   colideLayer:
     serializedVersion: 2
     m_Bits: 1073745665
