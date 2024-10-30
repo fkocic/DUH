@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GroundedStuhac
   m_EditorClassIdentifier: 
   enemyName: Stuhac
-  startHealth: 2
+  startHealth: 4
   moveSpeed: 5
   turnSpeed: 2
   aimSpeed: 4

@@ -130,7 +130,7 @@ public class PlayerMovement : InterpolatedTransform
         }
         else if (playerController.status != Status.wallRunning)
         {
-            MainManager.Audio?.playerAudio.Stop();
+            MainManager.Audio?.playerAudio?.Stop();
         }
     }
 

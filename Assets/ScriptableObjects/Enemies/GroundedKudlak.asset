@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GroundedKudlak
   m_EditorClassIdentifier: 
   enemyName: Kudlak
-  startHealth: 2
+  startHealth: 4
   moveSpeed: 6
   turnSpeed: 4
   aimSpeed: 6

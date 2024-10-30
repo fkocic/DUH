@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GroundedVed
   m_EditorClassIdentifier: 
   enemyName: Ved
-  startHealth: 2
+  startHealth: 4
   moveSpeed: 4
   turnSpeed: 2
   aimSpeed: 4

@@ -19,7 +19,7 @@ MonoBehaviour:
   reloadSpeed: 0
   rateOfFireRPM: 120
   spread: 0.1
-  damage: 1
+  damage: 2
   speed: 30
   size: 0.1
   duration: 4

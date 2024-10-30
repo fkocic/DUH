@@ -4159,6 +4159,47 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3390662629701944643, guid: 1e719d92a8bd5f540ad262ba04765f9f,
+        type: 3}
+      propertyPath: spawnEnemies.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3390662629701944643, guid: 1e719d92a8bd5f540ad262ba04765f9f,
+        type: 3}
+      propertyPath: spawnEnemies.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 45b5c75429cbf56469d722478d1b7d8a,
+        type: 2}
+    - target: {fileID: 3390662629701944643, guid: 1e719d92a8bd5f540ad262ba04765f9f,
+        type: 3}
+      propertyPath: spawnEnemies.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 1991d1fa10512d94db23a02ea8f01e47,
+        type: 2}
+    - target: {fileID: 3390662629701944643, guid: 1e719d92a8bd5f540ad262ba04765f9f,
+        type: 3}
+      propertyPath: spawnEnemies.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 0e8eba58b12b12f46b867cdc6d5b1570,
+        type: 2}
+    - target: {fileID: 3390662629701944643, guid: 1e719d92a8bd5f540ad262ba04765f9f,
+        type: 3}
+      propertyPath: spawnEnemies.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: 06b5e168a808ed445a4dd559dab10530,
+        type: 2}
+    - target: {fileID: 3390662629701944643, guid: 1e719d92a8bd5f540ad262ba04765f9f,
+        type: 3}
+      propertyPath: spawnEnemies.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: fbd940d868e91744193978c9014a7ae0,
+        type: 2}
+    - target: {fileID: 3390662629701944643, guid: 1e719d92a8bd5f540ad262ba04765f9f,
+        type: 3}
+      propertyPath: spawnEnemies.Array.data[7]
+      value: 
+      objectReference: {fileID: 11400000, guid: fdf314419d3035f47a6828abda7a7a5e,
+        type: 2}
     - target: {fileID: 5712403399082088730, guid: 1e719d92a8bd5f540ad262ba04765f9f,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GroundedCuvita
   m_EditorClassIdentifier: 
   enemyName: Cuvita
-  startHealth: 2
+  startHealth: 4
   moveSpeed: 3
   turnSpeed: 4
   aimSpeed: 6
