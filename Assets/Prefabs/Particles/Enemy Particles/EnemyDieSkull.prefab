@@ -4771,7 +4771,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -4779,8 +4779,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 15
+  MinDistance: 2
+  MaxDistance: 30
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -4868,5 +4868,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effectSounds:
-  - {fileID: 8300000, guid: 8f59375a6e104534c85ebde56dc31536, type: 3}
+  - {fileID: 8300000, guid: db8a61e6475294b41849a5b67e36007b, type: 3}
   effectParticles: {fileID: 6677034406985421195}

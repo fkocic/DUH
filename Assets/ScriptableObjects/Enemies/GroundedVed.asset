@@ -22,6 +22,6 @@ MonoBehaviour:
   glowEffectColor: {r: 1, g: 1, b: 1, a: 1}
   glowEffectDuration: 0.1
   glowEffectStrength: 3
-  vocalizeFrequency: 1
-  clipVocalize: {fileID: 0}
-  clipJump: {fileID: 0}
+  vocalizeFrequency: 3
+  clipVocalize: {fileID: 8300000, guid: 33472500caf67f3488d7680f881a0553, type: 3}
+  clipJump: {fileID: 8300000, guid: 65b84a900aec2654f929a96f1d1f11e2, type: 3}

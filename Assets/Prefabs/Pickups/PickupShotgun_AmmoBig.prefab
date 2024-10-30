@@ -147,6 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffd7e8629391e7d4881f8553faa6ce3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickupClip: {fileID: 8300000, guid: 8c3c9d56fc8df7a4b92909f7b003fbef, type: 3}
   ammoForGun: {fileID: 11400000, guid: 86c7048267817aa4e83cc24a24fa1220, type: 2}
   ammoAmount: 15
 --- !u!1001 &7463359606169095846

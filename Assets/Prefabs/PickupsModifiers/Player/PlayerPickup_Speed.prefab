@@ -147,6 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63ecd3d7e67984a43a4e584dc474ca7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickupClip: {fileID: 8300000, guid: 4f6b19cf4e857e64fb6a1f7e1865236d, type: 3}
   modifier: {fileID: 11400000, guid: 6c9900e46378af84388c78e169247da2, type: 2}
 --- !u!1001 &2041290739896463950
 PrefabInstance:

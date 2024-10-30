@@ -147,6 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd02f7ed524955141973f61997cdedc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickupClip: {fileID: 8300000, guid: 5e93e8cc481ed1646ac38d12f08f18de, type: 3}
   healAmount: 25
 --- !u!1001 &1794499963627791193
 PrefabInstance:
