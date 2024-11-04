@@ -59,14 +59,14 @@ MonoBehaviour:
   bulletTrailDuration: 0.3
   magazineSize: 5
   startAmmoInInventory: 10
-  maxAmmo: 50
+  maxAmmo: 25
   proximityCollisionMask:
     serializedVersion: 2
     m_Bits: 1073745665
   proximityRadius: 3
   bulletSpawnDistance: 1
   soundShooting:
-  - {fileID: 8300000, guid: 4b0143b2107d6074790910cec3870185, type: 3}
+  - {fileID: 8300000, guid: a159ef1a4e27c7444858feb091358502, type: 3}
   soundReload: {fileID: 8300000, guid: e14556e7d26c9164e8ebfb7c161ab903, type: 3}
   soundEmpty: {fileID: 8300000, guid: 132037694544e9044b90a22c44be3a83, type: 3}
   ModifiersPickup: []

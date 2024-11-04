@@ -11,6 +11,7 @@ public class Manager_Game : MonoBehaviour
     private int levelsPassed = -1;
     private bool isFading;
     private float targetAlpha;
+    private List<int> passedLevels = new List<int>();
 
     public int enemyNumber = 20;
     public bool isLevelOver;
@@ -43,10 +44,12 @@ public class Manager_Game : MonoBehaviour
         isLevelOver = false;
         allEnemiesSpawned = false;
         enemyNumber += 5;
+        passedLevels.Add(currentLevel);
     }
 
     private IEnumerator StartInitialization()
     {
+        passedLevels.Add(currentLevel);
         transitionPanel.gameObject.SetActive(true);
         transitionPanel.color = new Color(0.0f, 0.0f, 0.0f, 1);
         yield return new WaitForSeconds(0.5f);
@@ -85,13 +88,30 @@ public class Manager_Game : MonoBehaviour
     {
         int rnd = Random.Range(1, 10);
 
+        /*
         if (rnd == currentLevel)
         {
             GetRandomLevel();
             return;
         }
+        */
+
+        foreach (int level in passedLevels)
+        {
+            if (rnd == level)
+            {
+                GetRandomLevel();
+                return;
+            }
+        }
             
         currentLevel = rnd;
+
+        //passedLevels.Add(currentLevel);
+
+        if (passedLevels.Count >= 3)
+            passedLevels.Clear();
+
         return;
     }
 

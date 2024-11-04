@@ -22190,6 +22190,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: wooden_gate
       objectReference: {fileID: 0}
+    - target: {fileID: 4057153696292726397, guid: 1336628f4fc299949a8e6c0bfa845d16,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

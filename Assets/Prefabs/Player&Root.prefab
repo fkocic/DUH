@@ -2008,7 +2008,7 @@ PrefabInstance:
     - target: {fileID: 6979148772314119282, guid: 2989fed040fc00b468dae37f4757b7ba,
         type: 3}
       propertyPath: ammoPickups.Array.size
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6979148772314119282, guid: 2989fed040fc00b468dae37f4757b7ba,
         type: 3}
@@ -2103,13 +2103,13 @@ PrefabInstance:
         type: 3}
       propertyPath: ammoPickups.Array.data[4]
       value: 
-      objectReference: {fileID: 5314878641548378086, guid: 492f197ae6691a944a0d2c1730b9bc75,
+      objectReference: {fileID: 5314878641548378086, guid: 6f8be2f232be80d41a3823f36aa0851d,
         type: 3}
     - target: {fileID: 6979148772314119282, guid: 2989fed040fc00b468dae37f4757b7ba,
         type: 3}
       propertyPath: ammoPickups.Array.data[5]
       value: 
-      objectReference: {fileID: 5314878641548378086, guid: 6f8be2f232be80d41a3823f36aa0851d,
+      objectReference: {fileID: 5314878641548378086, guid: 07115c9dced70434d8dc202f4b15df59,
         type: 3}
     - target: {fileID: 6979148772314119282, guid: 2989fed040fc00b468dae37f4757b7ba,
         type: 3}

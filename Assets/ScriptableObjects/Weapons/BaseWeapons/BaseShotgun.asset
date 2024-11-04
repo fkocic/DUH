@@ -59,7 +59,7 @@ MonoBehaviour:
   bulletTrailDuration: 0.3
   magazineSize: 5
   startAmmoInInventory: 10
-  maxAmmo: 50
+  maxAmmo: 25
   proximityCollisionMask:
     serializedVersion: 2
     m_Bits: 1073745665

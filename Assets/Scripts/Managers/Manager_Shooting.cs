@@ -46,6 +46,15 @@ public class Manager_Shooting : MonoBehaviour
 
         UIAmmo();
         isActive = true;
+
+        //SwitchGunDirect(0);
+        StartCoroutine(StartGun());
+    }
+
+    private IEnumerator StartGun()
+    {
+        yield return new WaitForSeconds(1);
+        SwitchGunDirect(0);
     }
 
     public void ChangeAmmo(GunTemplate gun, int amount)

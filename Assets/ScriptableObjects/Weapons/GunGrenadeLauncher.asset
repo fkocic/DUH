@@ -15,18 +15,21 @@ MonoBehaviour:
   baseGunValues: {fileID: 11400000, guid: 7712c18328d3f49499ccbd2941fe7809, type: 2}
   gunName: Grenade Launcher
   gunDescription: 
-  reloadSpeed: 2
-  rateOfFire: 1
-  recoilStrength: 10
+  isPlayerGun: 1
+  reloadSpeed: 3
+  rateOfFireRPM: 45
+  spread: 0
   damage: 10
   speed: 30
   size: 0.3
   duration: 3
   forceOverLifetime: {x: 0, y: -20, z: 0}
+  cameraShakeIntensity: 20
+  cameraShakeDuration: 0.75
   bulletTrailColor:
     serializedVersion: 2
-    key0: {r: 1, g: 1, b: 1, a: 1}
-    key1: {r: 1, g: 1, b: 1, a: 1}
+    key0: {r: 1, g: 0.48571634, b: 0, a: 0.78431374}
+    key1: {r: 1, g: 0.4862745, b: 0, a: 0.09803922}
     key2: {r: 0, g: 0, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
@@ -54,12 +57,12 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   bulletTrailDuration: 0.3
-  magazineSize: 3
-  startAmmoInInventory: 24
-  maxAmmo: 120
+  magazineSize: 1
+  startAmmoInInventory: 2
+  maxAmmo: 10
   proximityCollisionMask:
     serializedVersion: 2
-    m_Bits: 3841
+    m_Bits: 1073745665
   proximityRadius: 3
   bulletSpawnDistance: 1
   soundShooting:
@@ -69,4 +72,5 @@ MonoBehaviour:
   ModifiersPickup: []
   ModifiersShoot: []
   ModifiersFixedUpdate: []
-  ModifiersColission: []
+  ModifiersColission:
+  - {fileID: 11400000, guid: 8219c58c87463cc43a36d7fdd2989566, type: 2}

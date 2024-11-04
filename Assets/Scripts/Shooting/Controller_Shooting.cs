@@ -39,7 +39,7 @@ public class Controller_Shooting : MonoBehaviour
             MainManager.Shooting.SwitchGunDirect(3);
         }
 
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape))
         {
             MainManager.Game.PauseGame();
         }

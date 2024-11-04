@@ -21,6 +21,14 @@ public class MainMenu : MonoBehaviour
             SceneManager.LoadScene("FinalLevel0" + rnd.ToString());
     }
 
+    public void StartSpecifiedLevel(int index)
+    {
+        if (index == 10)
+            SceneManager.LoadScene("FinalLevel" + index.ToString());
+        else
+            SceneManager.LoadScene("FinalLevel0" + index.ToString());
+    }
+
     public void ExitGame()
     {
         Application.Quit();

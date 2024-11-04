@@ -57,9 +57,9 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   bulletTrailDuration: 0.3
-  magazineSize: 3
-  startAmmoInInventory: 24
-  maxAmmo: 120
+  magazineSize: 1
+  startAmmoInInventory: 2
+  maxAmmo: 10
   proximityCollisionMask:
     serializedVersion: 2
     m_Bits: 1073745665

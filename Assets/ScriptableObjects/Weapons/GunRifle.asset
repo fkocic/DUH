@@ -15,18 +15,21 @@ MonoBehaviour:
   baseGunValues: {fileID: 11400000, guid: d90161dd6ba72c447b0f89abeac6ab13, type: 2}
   gunName: Assault Rifle
   gunDescription: 
+  isPlayerGun: 1
   reloadSpeed: 2
-  rateOfFire: 0.1
-  recoilStrength: 6
+  rateOfFireRPM: 480
+  spread: 0
   damage: 1
   speed: 60
   size: 0.05
   duration: 2
   forceOverLifetime: {x: 0, y: 0, z: 0}
+  cameraShakeIntensity: 6
+  cameraShakeDuration: 0.3
   bulletTrailColor:
     serializedVersion: 2
-    key0: {r: 1, g: 1, b: 1, a: 1}
-    key1: {r: 1, g: 1, b: 1, a: 1}
+    key0: {r: 1, g: 0.4862745, b: 0, a: 0.78431374}
+    key1: {r: 1, g: 0.4862745, b: 0, a: 0.09803922}
     key2: {r: 0, g: 0, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
@@ -56,19 +59,20 @@ MonoBehaviour:
   bulletTrailDuration: 0.3
   magazineSize: 30
   startAmmoInInventory: 90
-  maxAmmo: 120
+  maxAmmo: 240
   proximityCollisionMask:
     serializedVersion: 2
-    m_Bits: 3841
+    m_Bits: 1073745665
   proximityRadius: 3
   bulletSpawnDistance: 1
   soundShooting:
-  - {fileID: 8300000, guid: 1a2dec2e761f3b84c830b9b72776da87, type: 3}
-  - {fileID: 8300000, guid: 805125f3b1c5f494f90456348b853911, type: 3}
-  - {fileID: 8300000, guid: 1e61642356a51e94c9385bfe11f56730, type: 3}
+  - {fileID: 8300000, guid: 6dbbf5f0c3ccfab48ab58071fc9012da, type: 3}
+  - {fileID: 8300000, guid: 6a70b6448915135418054ed453398a99, type: 3}
   soundReload: {fileID: 8300000, guid: 0f23a591ac24a8845873efcd5aac2cad, type: 3}
   soundEmpty: {fileID: 8300000, guid: 132037694544e9044b90a22c44be3a83, type: 3}
   ModifiersPickup: []
   ModifiersShoot: []
-  ModifiersFixedUpdate: []
-  ModifiersColission: []
+  ModifiersFixedUpdate:
+  - {fileID: 11400000, guid: 86ced7da1a1d4ed4191ea21ff0ec722b, type: 2}
+  ModifiersColission:
+  - {fileID: 11400000, guid: 159f28f10f42ba04ea6ee89f8e375904, type: 2}
